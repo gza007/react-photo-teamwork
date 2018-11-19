@@ -14,12 +14,12 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MCRcodes/react-bootstrap.git"
+    "url": "git+https://github.com/ian-antking/hawk-eye.git"
   },
   "bugs": {
-    "url": "https://github.com/MCRcodes/react-bootstrap/issues"
+    "url": "https://github.com/ian-antking/hawk-eye/issues"
   },
-  "homepage": "https://github.com/MCRcodes/react-bootstrap#readme",
+  "homepage": "https://github.com/ian-antking/hawk-eye#readme",
   "dependencies": {
     "prop-types": "^15.6.1",
     "raf": "^3.4.0",
