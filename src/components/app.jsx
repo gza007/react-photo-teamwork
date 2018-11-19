@@ -1,4 +1,5 @@
 import React from 'react';
+import NavBar from './navbar';
 
 class App extends React.Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <h1>HawkEye</h1>
+      <NavBar />
     );
   }
 }
