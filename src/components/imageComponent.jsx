@@ -28,13 +28,13 @@ class ImageComponent extends React.Component {
           <img src="#" />
         </div>
         <div className="tagProp">
-          <i class="fas fa-hashtag"></i>
+          <i className="fas fa-hashtag"></i>
         </div>
         <div className="commentProp">
-          <i class="far fa-comments"></i>
+          <i className="far fa-comments"></i>
         </div>
         <div className="likesProp">
-          <i class="fas fa-thumbs-up"></i>
+          <i className="fas fa-thumbs-up"></i>
         </div>
 
       </div>

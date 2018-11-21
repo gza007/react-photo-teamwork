@@ -9,6 +9,10 @@ class AddImages extends React.Component {
       images: [],
     };
   }
+
+  componentDidMount() {
+    Axios.get('https://mcr-codes-image-sharing-api.herokuapp.com/images');
+  }
 }
 
 
