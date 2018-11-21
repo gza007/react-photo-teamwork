@@ -1,8 +1,8 @@
 import React from 'react';
-import NavBar from './navbar';
-import SignUp from './sign-up';
+import NavBar from '../components/navbar';
+import SignUp from '../components/sign-up';
 import { Switch, Route } from 'react-router-dom';
-import ImageComponent from './imageComponent';
+import ImageComponent from '../components/imageComponent';
 
 class App extends React.Component {
   constructor(props) {

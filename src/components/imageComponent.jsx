@@ -1,42 +1,62 @@
 import React from 'react';
 import '../Styles/ImageComponent.css';
+import Axios from 'axios';
 
 
 class ImageComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      _id: '',
-      caption: '',
-      comments: '',
-      likes: 0,
+      fields: {
+        caption: '',
+        tags: [],
+        comments: '',
+        likes: [],
+      },
     };
+  }
+
+  componentDidMount() {
+    Axios.get('https://mcr-codes-image-sharing-api.herokuapp.com/images', this.state.fields)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   render() {
     return (
-      <div className="imageCard">
-        <div className="imageCardLogo">
-          <i className="fas fa-image" />
+      <React.Fragment>
 
-        </div>
+        <div className="imageCard">
+          <div className="imageCardLogo">
+            <i className="fas fa-image" />
 
-        <div className="srcProp">
-          <h3>Caption:</h3>
+          </div>
+
+          <div className="srcProp">
+            <i className="fas fa-comment" />{this.props.caption}
+          </div>
+          <div className="tagProp">
+            <i className="fas fa-hashtag" />
+            {this.props.tags}
+          </div>
+          <div className="commentProp">
+            <i className="far fa-comments" />
+            {this.props.comments}
+          </div>
+          <div className="likesProp">
+            <i className="fas fa-thumbs-up" />
+            {this.props.likes}
+          </div>
+          <div className="theImage">
+            <img src="#" />
+          </div>
         </div>
-        <div className="tagProp">
-          <i className="fas fa-hashtag"></i>
-        </div>
-        <div className="commentProp">
-          <i className="far fa-comments"></i>
-        </div>
-        <div className="likesProp">
-          <i className="fas fa-thumbs-up"></i>
-        </div>
-        <div className="theImage">
-          <img src="#" />
-        </div>
-      </div>
+      </React.Fragment>
+
     );
   }
 }
