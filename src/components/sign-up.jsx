@@ -1,10 +1,13 @@
 import React from 'react';
+import axios from 'axios';
 
 class SignUp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       fields: {
+        firstName: '',
+        lastName: '',
         email: '',
         password: '',
       },
@@ -18,7 +21,18 @@ class SignUp extends React.Component {
         [event.target.name]: event.target.value,
       },
     });
-    console.log(event.target.value);
+  };
+
+  handleSignUp = (event) => {
+    event.preventDefault();
+    axios.post('http://mcr-codes-image-sharing-api.herokuapp.com/users', this.state.fields)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
   };
 
   render() {
@@ -26,7 +40,37 @@ class SignUp extends React.Component {
       <React.Fragment>
         <div className="sign-up">
           <h1>Sign Up</h1>
-          <form>
+          <form
+            onSubmit={this.handleSignUp}
+          >
+            <div className="sign-up_input">
+              <label
+                htmlFor="firstName"
+              >
+                first name:
+              </label>
+              <input
+                name="firstName"
+                type="text"
+                value={this.state.fields.firstName}
+                onChange={this.handleFieldChange}
+                required
+              />
+            </div>
+            <div className="sign-up_input">
+              <label
+                htmlFor="lastName"
+              >
+                last name:
+              </label>
+              <input
+                name="lastName"
+                type="text"
+                value={this.state.fields.lastName}
+                onChange={this.handleFieldChange}
+                required
+              />
+            </div>
             <div className="sign-up_input">
               <label
                 htmlFor="email"
@@ -38,6 +82,7 @@ class SignUp extends React.Component {
                 type="email"
                 value={this.state.fields.email}
                 onChange={this.handleFieldChange}
+                required
               />
             </div>
             <div className="sign-up_input">
@@ -51,7 +96,15 @@ class SignUp extends React.Component {
                 type="password"
                 value={this.state.fields.password}
                 onChange={this.handleFieldChange}
+                required
               />
+            </div>
+            <div className="sign-up_inpus">
+              <button
+                type="submit"
+              >
+                Sign Up
+              </button>
             </div>
           </form>
         </div>
