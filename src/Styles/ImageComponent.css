@@ -1,0 +1,45 @@
+.imageCard {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border: 2px solid #000;
+  border-radius: 10px 10px 0px 0px;
+  width: 33.3%;
+  padding: 5px;
+  margin: 20px 0px 0px 466px;
+}
+
+.imageCardLogo {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  font-size: 50px;
+  background-color: #00d681;
+  margin: 0px 0px 10px 0px;
+}
+
+.srcProp {
+  background-color: #00bdd6;
+  padding: 10px;
+}
+
+.tagProp {
+  background-color: #00bdd6;
+  padding: 10px;
+}
+
+.commentProp {
+  background-color: #00bdd6;
+  padding: 10px;
+}
+
+.likesProp {
+  background-color: #00bdd6;
+  padding: 10px;
+}
+
+.theImage {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}

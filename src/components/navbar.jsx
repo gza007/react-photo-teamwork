@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 const NavBar = () => {
   return (
     <header>
@@ -8,6 +9,7 @@ const NavBar = () => {
       <nav>
         <Link to="/login">Login</Link>
         <Link to="/sign-up">Sign-up</Link>
+        <Link to="/images">Images</Link>
       </nav>
     </header>
   );

@@ -26,6 +26,7 @@
     "raf": "^3.4.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
+    "react-image": "^1.5.1",
     "react-router-dom": "^4.3.1"
   },
   "devDependencies": {
