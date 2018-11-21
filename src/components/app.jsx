@@ -2,7 +2,7 @@ import React from 'react';
 import NavBar from './navbar';
 import SignUp from './sign-up';
 import { Switch, Route } from 'react-router-dom';
-import ImageComponent from './components/imageComponent';
+import ImageComponent from './imageComponent';
 
 class App extends React.Component {
   constructor(props) {
