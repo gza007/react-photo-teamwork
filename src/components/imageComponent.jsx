@@ -24,6 +24,9 @@ class ImageComponent extends React.Component {
         <div className="srcProp">
           <h3>Caption:</h3>
         </div>
+        <div className="theImage">
+          <img src="#" />
+        </div>
         <div className="tagProp">
           <i class="fas fa-hashtag"></i>
         </div>
@@ -33,9 +36,7 @@ class ImageComponent extends React.Component {
         <div className="likesProp">
           <i class="fas fa-thumbs-up"></i>
         </div>
-        <div className="theImage">
-          <img src="#" />
-        </div>
+
       </div>
     );
   }
