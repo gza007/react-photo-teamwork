@@ -8,7 +8,11 @@ const NavBar = () => {
       <h1>HawkEye</h1>
       <nav>
         <Link to="/login">Login</Link>
+<<<<<<< HEAD
 
+=======
+        <Link to="/sign-up">Sign-up</Link>
+>>>>>>> 6293228d22455a60b7d98686602833afdf05c4ed
       </nav>
     </header>
   );
