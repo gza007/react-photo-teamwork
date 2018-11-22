@@ -5,6 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 import ImageCardComponent from './imageCardComponent';
 import ImagesComponent from '../components/ImagesComponent';
 
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -16,6 +17,7 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <NavBar />
+
         <Switch>
           <Route exact path="/sign-up" component={SignUp} />
           <Route exact path="/images" component={ImageCardComponent} />
