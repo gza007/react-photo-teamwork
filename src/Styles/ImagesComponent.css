@@ -1,11 +1,11 @@
 .image-card {
-padding: 0.5rem;
+padding: 5px;
 }
 
 .image-card > .col {
   display: flex;
   flex-direction: column;
   width: 33.33%;
-  padding: 0.5rem;
+  padding: 5px;
   box-sizing: border-box;
 }
