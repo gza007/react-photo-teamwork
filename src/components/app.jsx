@@ -2,13 +2,13 @@ import React from 'react';
 import NavBar from '../components/navbar';
 import SignUp from '../components/sign-up';
 import { Switch, Route } from 'react-router-dom';
-import ImageComponent from '../components/imageComponent';
+import ImageCardComponent from './imageCardComponent';
+import ImagesComponent from '../components/ImagesComponent';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
     };
   }
 
@@ -18,7 +18,8 @@ class App extends React.Component {
         <NavBar />
         <Switch>
           <Route exact path="/sign-up" component={SignUp} />
-          <Route exact path="/images" component={ImageComponent} />
+          <Route exact path="/images" component={ImageCardComponent} />
+          <Route exact path="/ImagesComponent" component={ImagesComponent} />
         </Switch>
       </React.Fragment>
     );
