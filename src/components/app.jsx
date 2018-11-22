@@ -2,7 +2,7 @@ import React from 'react';
 import NavBar from '../components/navbar';
 import SignUp from '../components/sign-up';
 import { Switch, Route } from 'react-router-dom';
-import ImageCardComponent from './imageCardComponent';
+import ImageCardComponent from '../components/imageCardComponent';
 import ImagesComponent from '../components/ImagesComponent';
 
 
