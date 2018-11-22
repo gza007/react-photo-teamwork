@@ -1,52 +1,42 @@
-/* eslint-disable react/no-unused-state */
 import React from 'react';
-import '../Styles/ImageCardComponent.css';
+import '../Styles/ImageComponent.css';
 
 
-class ImageCardComponent extends React.Component {
+class ImageComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      caption: '',
-      tags: [],
-      comments: [],
-      likes: 0,
-      src: '',
-
+      images: [],
     };
   }
 
   render() {
     return (
-
       <div className="imageCard">
         <div className="imageCardLogo">
           <i className="fas fa-image" />
 
         </div>
 
-        <div className="caption">
-          <i className="fas fa-comment" />{this.props.caption}
+        <div className="srcProp">
+          <h3>Caption:</h3>
+        </div>
+        <div className="theImage">
+          <img src="#" />
         </div>
         <div className="tagProp">
           <i className="fas fa-hashtag" />
-          {this.props.tags}
         </div>
         <div className="commentProp">
           <i className="far fa-comments" />
-          {this.props.comments}
         </div>
         <div className="likesProp">
           <i className="fas fa-thumbs-up" />
-          {this.props.likes}
         </div>
-        <div className="theImage">
-          <img src={this.props.src} />
-        </div>
-      </div>
 
+      </div>
     );
   }
 }
 
-export default ImageCardComponent;
+export default ImageComponent;
