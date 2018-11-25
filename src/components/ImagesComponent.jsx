@@ -14,6 +14,7 @@ class ImagesComponent extends React.Component {
         comments: [],
         likes: 0,
         src: '',
+        isLiked: true,
       },
 
     };
@@ -27,6 +28,7 @@ class ImagesComponent extends React.Component {
         console.log(error);
       });
   }
+
 
   render() {
     return (

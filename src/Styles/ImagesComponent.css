@@ -1,5 +1,7 @@
 .image-card {
 padding: 5px;
+background-color: aliceblue;
+
 }
 
 .image-card > .col {
