@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable react/no-unused-state */
 import React from 'react';
@@ -43,28 +44,31 @@ class ImageCardComponent extends React.Component {
         <div className="theImage">
           <img src={this.props.src} />
         </div>
+        <div className="interaction-div">
+          <div className="caption">
+            <i className="fas fa-comment" />
+            {this.props.caption}
+          </div>
+          <div className="tagProp">
+            <i className="fas fa-hashtag" />
+            {this.props.tags}
+          </div>
+          <div className="commentProp">
+            <i className="far fa-comments" />
+            {this.props.comments}
+          </div>
+          <div className="likesProp">
+            <i className="fas fa-thumbs-up" />
+            {this.props.likes}
+          </div>
 
-        <div className="caption">
-          <i className="fas fa-comment" />
-          {this.props.caption}
         </div>
-        <div className="tagProp">
-          <i className="fas fa-hashtag" />
-          {this.props.tags}
-        </div>
-        <div className="commentProp">
-          <i className="far fa-comments" />
-          {this.props.comments}
-        </div>
-        <div className="likesProp">
-          <i className="fas fa-thumbs-up" />
-          {this.props.likes}
-        </div>
+
         <div>
           <label> Add a comment  </label>
           <input name="comments" type="text" className="input-comments"></input>
           <button className="commentsButton" type="submit">Comment</button>
-          <button className="likesButton" type="submit" onClick={this.handleOnClick}>Like</button>
+          <button className="likesButton" type="submit" onClick={this.handleOnClick}><i className="fas fa-heart" />Like</button>
 
 
         </div>
