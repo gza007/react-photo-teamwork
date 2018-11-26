@@ -23,9 +23,7 @@ class ImageCardComponent extends React.Component {
 
 
   handleOnClick = (event) => {
-    const formData = new FormData();
-    formData.append('likes', this.state.fields);
-    axios.patch(`https://mcr-codes-image-sharing-api.herokuapp.com/images/${this.state.fields._id}/likes`, formData, {
+    axios.patch(`https://mcr-codes-image-sharing-api.herokuapp.com/images/${this.state.fields._id}/likes`, null, {
       headers: {
         Authorization: TokenManager.getToken(),
       },
