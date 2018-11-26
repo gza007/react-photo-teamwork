@@ -7,9 +7,9 @@ const NavBar = () => {
     <header>
       <h1>HawkEye</h1>
       <nav>
-        <Link to="/login">Login</Link>
-        <Link to="/sign-up">Sign-up</Link>
-        <Link to="/images">Images</Link>
+        <Link to="/login" replace>Login</Link>
+        <Link to="/sign-up" replace>Sign-up</Link>
+        <Link to="/images" replace>Images</Link>
 
       </nav>
     </header>
