@@ -3,6 +3,7 @@
 import React from 'react';
 import '../Styles/ImageCardComponent.css';
 import axios from 'axios';
+import TokenManager from '../utils/token-manager';
 
 class ImageCardComponent extends React.Component {
   constructor(props) {
@@ -22,8 +23,10 @@ class ImageCardComponent extends React.Component {
 
 
   handleOnClick = (event) => {
-    axios.patch('https://mcr-codes-image-sharing-api.herokuapp.com/images/:id', {
-      likes: this.state.fields.likes += 1,
+    axios.patch(`https://mcr-codes-image-sharing-api.herokuapp.com/images/${this.state.fields.id}/likes`, {
+      headers: {
+        Authorization: TokenManager.getToken(),
+      },
     })
       .then((response) => {
         console.log(response);
