@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Styles/ImageCardComponent.css';
+import '../Styles/ImagesComponent.css';
 import axios from 'axios';
 import ImageCardComponent from '../components/imageCardComponent';
 
@@ -14,6 +14,7 @@ class ImagesComponent extends React.Component {
         comments: [],
         likes: 0,
         src: '',
+        isLiked: true,
       },
 
     };
@@ -28,13 +29,14 @@ class ImagesComponent extends React.Component {
       });
   }
 
+
   render() {
     return (
       <React.Fragment>
-        <div>
+        <div className="image-card">
           {this.state.images.map(image => {
             return (
-              <div key={image._id}>
+              <div key={image._id} className="col">
                 <ImageCardComponent
                   caption={image.caption}
                   tags={image.tags}

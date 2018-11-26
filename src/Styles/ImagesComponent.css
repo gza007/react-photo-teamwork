@@ -1,5 +1,13 @@
-.uploadform {
+.image-card {
+padding: 5px;
+background-color: aliceblue;
+
+}
+
+.image-card > .col {
   display: flex;
-  justify-content: center;
-  border: 2px solid #000;
+  flex-direction: column;
+  width: 640px;
+  padding: 5px;
+  box-sizing: border-box;
 }
