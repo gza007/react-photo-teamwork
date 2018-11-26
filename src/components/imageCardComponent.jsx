@@ -10,7 +10,7 @@ class ImageCardComponent extends React.Component {
     super(props);
     this.state = {
       fields: {
-        id: this.props.image._id,
+        _id: this.props.image._id,
         caption: this.props.image.caption,
         tags: this.props.image.tags,
         comments: this.props.image.comments.content,
@@ -25,17 +25,15 @@ class ImageCardComponent extends React.Component {
   handleOnClick = (event) => {
     const formData = new FormData();
     formData.append('likes', this.state.fields);
-    axios.patch(`https://mcr-codes-image-sharing-api.herokuapp.com/images/${this.state.fields.id}/likes`, formData, {
+    axios.patch(`https://mcr-codes-image-sharing-api.herokuapp.com/images/${this.state.fields._id}/likes`, formData, {
       headers: {
         Authorization: TokenManager.getToken(),
       },
     })
       .then((response) => {
+        console.log(response);
         this.setState({
-          fields: {
-            ...this.state.fields,
-            [response.name]: response.value,
-          },
+          fields: response.data,
         });
       });
 
