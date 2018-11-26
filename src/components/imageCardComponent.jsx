@@ -23,9 +23,7 @@ class ImageCardComponent extends React.Component {
 
 
   handleOnClick = (event) => {
-    axios.patch('https://mcr-codes-image-sharing-api.herokuapp.com/images/:id', {
-      likes: this.state.fields.likes += 1,
-    })
+    axios.patch('https://mcr-codes-image-sharing-api.herokuapp.com/images/:id/likes')
       .then((response) => {
         console.log(response);
       });
