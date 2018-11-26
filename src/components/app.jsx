@@ -2,8 +2,8 @@ import React from 'react';
 import NavBar from '../components/navbar';
 import SignUp from '../components/sign-up';
 import { Switch, Route } from 'react-router-dom';
-import ImageCardComponent from './imageCardComponent';
 import ImagesComponent from '../components/ImagesComponent';
+import Login from '../components/login';
 
 class App extends React.Component {
   constructor(props) {
@@ -17,6 +17,7 @@ class App extends React.Component {
       <React.Fragment>
         <NavBar />
         <Switch>
+          <Route exact path="/" component={Login} />
           <Route exact path="/sign-up" component={SignUp} />
           <Route exact path="/images" component={ImagesComponent} />
         </Switch>

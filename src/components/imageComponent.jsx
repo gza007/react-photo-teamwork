@@ -1,12 +1,15 @@
 import React from 'react';
-import '../Styles/ImageComponent.css';
+import '../Styles/ImagesComponent.css';
 
 
 class ImageComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      images: [],
+      _id: '',
+      caption: '',
+      comments: '',
+      likes: 0,
     };
   }
 
