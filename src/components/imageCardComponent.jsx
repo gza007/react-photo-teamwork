@@ -10,26 +10,33 @@ class ImageCardComponent extends React.Component {
     super(props);
     this.state = {
       fields: {
-        id: '',
-        caption: '',
-        tags: [],
-        comments: [],
-        likes: 0,
-        src: '',
-        isLiked: true,
+        id: this.props.image._id,
+        caption: this.props.image.caption,
+        tags: this.props.image.tags,
+        comments: this.props.image.comments.content,
+        likes: this.props.image.likes,
+        src: this.props.image.src,
+        isLiked: this.props.image.isLiked,
       },
     };
   }
 
 
   handleOnClick = (event) => {
-    axios.patch(`https://mcr-codes-image-sharing-api.herokuapp.com/images/${this.state.fields.id}/likes`, {
+    const formData = new FormData();
+    formData.append('likes', this.state.fields);
+    axios.patch(`https://mcr-codes-image-sharing-api.herokuapp.com/images/${this.state.fields.id}/likes`, formData, {
       headers: {
         Authorization: TokenManager.getToken(),
       },
     })
       .then((response) => {
-        console.log(response);
+        this.setState({
+          fields: {
+            ...this.state.fields,
+            [response.name]: response.value,
+          },
+        });
       });
 
     event.preventDefault();
@@ -44,24 +51,24 @@ class ImageCardComponent extends React.Component {
 
         </div>
         <div className="theImage">
-          <img src={this.props.src} />
+          <img src={this.state.fields.src} />
         </div>
 
         <div className="caption">
           <i className="fas fa-comment" />
-          {this.props.caption}
+          {this.state.fields.caption}
         </div>
         <div className="tagProp">
           <i className="fas fa-hashtag" />
-          {this.props.tags}
+          {this.state.fields.tags}
         </div>
         <div className="commentProp">
           <i className="far fa-comments" />
-          {this.props.comments}
+          {this.state.fields.comments}
         </div>
         <div className="likesProp">
           <i className="fas fa-thumbs-up" />
-          {this.props.likes}
+          {this.state.fields.likes}
         </div>
         <div>
           <label> Add a comment  </label>
