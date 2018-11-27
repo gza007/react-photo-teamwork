@@ -10,26 +10,29 @@ class ImageCardComponent extends React.Component {
     super(props);
     this.state = {
       fields: {
-        id: '',
-        caption: '',
-        tags: [],
-        comments: [],
-        likes: 0,
-        src: '',
-        isLiked: true,
+        _id: this.props.image._id,
+        caption: this.props.image.caption,
+        tags: this.props.image.tags,
+        comments: this.props.image.comments.content,
+        likes: this.props.image.likes,
+        src: this.props.image.src,
+        isLiked: this.props.image.isLiked,
       },
     };
   }
 
 
   handleOnClick = (event) => {
-    axios.patch(`https://mcr-codes-image-sharing-api.herokuapp.com/images/${this.state.fields.id}/likes`, {
+    axios.patch(`https://mcr-codes-image-sharing-api.herokuapp.com/images/${this.state.fields._id}/likes`, null, {
       headers: {
         Authorization: TokenManager.getToken(),
       },
     })
       .then((response) => {
         console.log(response);
+        this.setState({
+          fields: response.data,
+        });
       });
 
     event.preventDefault();
