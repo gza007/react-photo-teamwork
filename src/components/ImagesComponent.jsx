@@ -38,11 +38,7 @@ class ImagesComponent extends React.Component {
             return (
               <div key={image._id} className="col">
                 <ImageCardComponent
-                  caption={image.caption}
-                  tags={image.tags}
-                  comments={image.comments}
-                  likes={image.likes}
-                  src={image.src}
+                  image={image}
                 />
               </div>
             );

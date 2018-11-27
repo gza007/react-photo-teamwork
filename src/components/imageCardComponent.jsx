@@ -41,27 +41,26 @@ class ImageCardComponent extends React.Component {
       <div className="imageCard">
         <div className="imageCardLogo">
           <i className="fas fa-image" />
-
         </div>
         <div className="theImage">
-          <img src={this.props.src} />
+          <img src={this.props.image.src} />
         </div>
 
         <div className="caption">
           <i className="fas fa-comment" />
-          {this.props.caption}
+          {this.props.image.caption}
         </div>
         <div className="tagProp">
           <i className="fas fa-hashtag" />
-          {this.props.tags}
+          {this.props.image.tags}
         </div>
         <div className="commentProp">
           <i className="far fa-comments" />
-          {this.props.comments}
+          {this.props.image.comments.content}
         </div>
         <div className="likesProp">
           <i className="fas fa-thumbs-up" />
-          {this.props.likes}
+          {this.props.image.likes}
         </div>
         <div>
           <label> Add a comment  </label>
