@@ -2,6 +2,7 @@
 import React from 'react';
 import '../Styles/uploadImageComponent.css';
 
+
 class UploadImage extends React.Component {
   constructor(props) {
     super(props);
@@ -16,8 +17,10 @@ class UploadImage extends React.Component {
       <div className="upload-form">
         <form>
 
+
           <label htmlFor="Image">Upload An Email</label>
           <input type="file"></input>
+
 
 
         </form>

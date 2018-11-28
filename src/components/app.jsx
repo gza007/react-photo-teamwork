@@ -8,6 +8,7 @@ import Login from '../components/login';
 import TokenManager from '../utils/token-manager';
 import AuthRoute from './auth-route';
 
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -32,11 +33,13 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
+
         <NavBar
           isLoggedIn={this.isLoggedIn()}
           user={this.state.user}
           onLogout={this.handleLogout}
         />
+
         <Switch>
           <Route
             exact
