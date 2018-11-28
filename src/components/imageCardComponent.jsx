@@ -31,10 +31,7 @@ class ImageCardComponent extends React.Component {
     })
       .then((response) => {
         this.setState({
-          fields: {
-            like: response.data.likes,
-            isLiked: response.data.isLiked,
-          },
+          fields: response.data,
         });
       });
 
@@ -43,30 +40,29 @@ class ImageCardComponent extends React.Component {
 
   render() {
     return (
-
       <div className="imageCard">
         <div className="imageCardLogo">
           <i className="fas fa-image" />
         </div>
         <div className="theImage">
-          <img src={this.props.image.src} />
+          <img src={this.state.fields.src} />
         </div>
         <div className="interaction-div">
           <div className="caption">
             <i className="fas fa-comment" />
-            {this.props.image.caption}
+            {this.state.fields.caption}
           </div>
           <div className="tagProp">
             <i className="fas fa-hashtag" />
-            {this.props.image.tags}
+            {this.state.fields.tags}
           </div>
           <div className="commentProp">
             <i className="far fa-comments" />
-            {this.props.image.comments.content}
+            {this.state.fields.comments}
           </div>
           <div className="likesProp">
             <i className="fas fa-thumbs-up" />
-            {this.props.image.likes}
+            {this.state.fields.likes}
           </div>
           <div>
             <label> Add a comment  </label>

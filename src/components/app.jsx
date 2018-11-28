@@ -7,6 +7,7 @@ import UploadImage from '../../src/components/uploadImageComponent';
 import Login from '../components/login';
 import TokenManager from '../utils/token-manager';
 import AuthRoute from './auth-route';
+import Profile from './profile';
 
 
 class App extends React.Component {
@@ -41,24 +42,30 @@ class App extends React.Component {
         />
 
         <Switch>
-          {
-            !this.isLoggedIn() && (
-            <React.Fragment>
-              <Route
-                exact
-                path="/login"
-                render={props => (
-                  <Login {...props} onLogin={this.handleLogin} />
-                )}
+          <Route
+            exact
+            path="/login"
+            render={props => (
+              <Login {...props} onLogin={this.handleLogin} />
+            )}
+          />
+          <Route
+            exact
+            path="/sign-up"
+            component={SignUp}
+          />
+          <Route
+            exact
+            path="/profile"
+            render={props => (
+              <Profile
+                {...props}
+                onLogout={this.handleLogout}
+                user={this.state.user}
+                isLoggedIn={this.isLoggedIn()}
               />
-              <Route
-                exact
-                path="/sign-up"
-                component={SignUp}
-              />
-            </React.Fragment>
-            )
-            }
+            )}
+          />
           <AuthRoute
             exact
             path="/upload-images"
