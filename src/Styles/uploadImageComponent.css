@@ -1,0 +1,26 @@
+.upload-form {
+  display: flex;
+  justify-content: center;
+  border: 2px solid #000;
+  background-image: linear-gradient(to right, #1488CC , #2B32B2);
+  font-family: 'Acme', sans-serif;
+  border-radius: 20px;
+  width: 640px;
+  height: 450px;
+  margin: 20px 0px 0px 380px;
+  padding: 20px;
+  font-size: 25px;
+}
+
+.form-header {
+  display: flex;
+  justify-content: center;
+}
+
+.caption-div {
+  margin: 50px 0px 0px 0px;
+}
+
+.tags-div {
+  margin: 50px 0px 200px 0px;
+}

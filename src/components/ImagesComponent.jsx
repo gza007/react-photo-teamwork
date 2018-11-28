@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Styles/ImageCardComponent.css';
+import '../Styles/ImagesComponent.css';
 import axios from 'axios';
 import ImageCardComponent from '../components/imageCardComponent';
 
@@ -7,12 +7,14 @@ class ImagesComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      images: [],
       fields: {
         caption: '',
         tags: [],
         comments: [],
         likes: 0,
         src: '',
+        isLiked: true,
       },
 
     };
@@ -20,31 +22,23 @@ class ImagesComponent extends React.Component {
 
   componentDidMount() {
     axios.get('https://mcr-codes-image-sharing-api.herokuapp.com/images', this.state.fields)
-      .then((response) => this.setState({ fields: response.data }))
-      .catch((error) => {
-        console.log(error);
-      });
+      .then((response) => this.setState({ images: response.data }));
   }
+
 
   render() {
     return (
       <React.Fragment>
-        <div>
-          {
-            this.state.images.map(image => (
-              <div key={image._id}>
+        <div className="image-card">
+          {this.state.images.map(image => {
+            return (
+              <div key={image._id} className="col">
                 <ImageCardComponent
-                  caption={image.caption}
-                  tags={image.tags}
-                  comments={image.comments}
-                  likes={image.likes}
-                  src={image.src}
+                  image={image}
                 />
-
               </div>
-            ))
-          }
-          />
+            );
+          })}
         </div>
       </React.Fragment>
     );
