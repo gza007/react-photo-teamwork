@@ -23,6 +23,7 @@ class UploadImage extends React.Component {
         </form>
 
       </div>
+
     );
   }
 }

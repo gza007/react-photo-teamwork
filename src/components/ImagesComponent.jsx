@@ -22,11 +22,7 @@ class ImagesComponent extends React.Component {
 
   componentDidMount() {
     axios.get('https://mcr-codes-image-sharing-api.herokuapp.com/images', this.state.fields)
-      .then((response) => this.setState({ images: response.data }))
-      .then((response) => { console.log(response); })
-      .catch((error) => {
-        console.log(error);
-      });
+      .then((response) => this.setState({ images: response.data }));
   }
 
 
@@ -38,11 +34,7 @@ class ImagesComponent extends React.Component {
             return (
               <div key={image._id} className="col">
                 <ImageCardComponent
-                  caption={image.caption}
-                  tags={image.tags}
-                  comments={image.comments}
-                  likes={image.likes}
-                  src={image.src}
+                  image={image}
                 />
               </div>
             );

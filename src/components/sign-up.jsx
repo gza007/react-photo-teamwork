@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import TokenManager from '../utils/token-manager';
 
 class SignUp extends React.Component {
   constructor(props) {
@@ -26,8 +27,12 @@ class SignUp extends React.Component {
   handleSignUp = (event) => {
     event.preventDefault();
     axios.post('http://mcr-codes-image-sharing-api.herokuapp.com/users', this.state.fields)
-      .then((response) => {
-        console.log(response);
+      .then(() => {
+        axios.post('http://mcr-codes-image-sharing-api.herokuapp.com/auth/login', this.state.fields)
+          .then((response) => {
+            TokenManager.setToken(response.data.token);
+            this.props.onLogin();
+          });
       })
       .catch((error) => {
         console.log(error);
