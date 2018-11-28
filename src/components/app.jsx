@@ -8,6 +8,7 @@ import Login from '../components/login';
 import TokenManager from '../utils/token-manager';
 import AuthRoute from './auth-route';
 import Profile from './profile';
+import '../Styles/app.scss';
 
 
 class App extends React.Component {
