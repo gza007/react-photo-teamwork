@@ -21,6 +21,7 @@ class App extends React.Component {
   handleLogout = () => {
     TokenManager.removeToken();
     this.setState({ user: null });
+    console.log(this.state.user);
   };
 
   isLoggedIn = () => {
@@ -39,8 +40,9 @@ class App extends React.Component {
           <Route
             exact
             path="/login"
-            component={Login}
-            onLogin={this.handleLogin}
+            render={props => (
+              <Login {...props} onLogin={this.handleLogin} />
+            )}
           />
           <Route exact path="/sign-up" component={SignUp} />
           <Route exact path="/images" component={ImagesComponent} />

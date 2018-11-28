@@ -29,9 +29,11 @@ class ImageCardComponent extends React.Component {
       },
     })
       .then((response) => {
-        console.log(response);
         this.setState({
-          fields: response.data,
+          fields: {
+            like: response.data.likes,
+            isLiked: response.data.isLiked,
+          },
         });
       });
 

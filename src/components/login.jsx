@@ -6,7 +6,6 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      handleLogin: props.handleLogin,
       fields: {
         email: '',
         password: '',
@@ -29,7 +28,7 @@ class Login extends React.Component {
       .then((response) => {
         console.log(response);
         TokenManager.setToken(response.data.token);
-        this.state.handleLogin();
+        this.props.onLogin();
       })
       .catch((error) => {
         console.log(error);
