@@ -13,10 +13,12 @@ const NavBar = ({ user, isLoggedIn }) => {
         }
       </div>
       <nav>
-        <Link to="/login" replace>Login</Link>
-        <Link to="/sign-up" replace>Sign-up</Link>
-        <Link to="/images" replace>Images</Link>
-        <Link to="/upload" replace>Images</Link>
+        <Link to="/login">Login</Link>
+
+        <Link to="/sign-up">Sign-up</Link>
+        <Link to="/images">Images</Link>
+        <Link to="/upload-images">Upload an Image</Link>
+
 
 
       </nav>

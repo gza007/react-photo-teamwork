@@ -7,6 +7,8 @@
   width: 640px;
   padding: 5px;
   margin: 0px 0px 0px 340px;
+  background-color: #fff;
+  font-family: 'Acme', sans-serif;
 }
 
 .imageCardLogo {
@@ -14,12 +16,16 @@
   justify-content: center;
   padding: 20px;
   font-size: 50px;
-  background-color: #00d681;
+  background-image: linear-gradient(to right, #00467F , #A5CC82);
   margin: 0px 0px 10px 0px;
 }
 
+.interaction-div {
+  background-image: linear-gradient(to right, #1488CC , #2B32B2);
+
+}
+
 .caption {
-  background-color: #00bdd6;
   padding: 20px;
   font-size: 20px;
   display: flex;
@@ -27,21 +33,19 @@
 }
 
 .tagProp {
-  background-color: #00bdd6;
+
   padding: 20px;
   font-size: 20px;
 
 }
 
 .commentProp {
-  background-color: #00bdd6;
   padding: 20px;
   font-size: 20px;
 
 }
 
 .likesProp {
-  background-color: #00bdd6;
   padding: 20px;
   font-size: 20px;
 

@@ -1,11 +1,13 @@
 import React from 'react';
-import NavBar from '../components/navbar';
+import NavBar from '../../src/components/navbar';
 import SignUp from '../components/sign-up';
 import { Switch, Route } from 'react-router-dom';
 import ImagesComponent from '../components/ImagesComponent';
+import UploadImage from '../../src/components/uploadImageComponent';
 import Login from '../components/login';
 import TokenManager from '../utils/token-manager';
 import AuthRoute from './auth-route';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -31,11 +33,13 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
+
         <NavBar
           isLoggedIn={this.isLoggedIn()}
           user={this.state.user}
           onLogout={this.handleLogout}
         />
+
         <Switch>
           <Route
             exact
@@ -45,6 +49,12 @@ class App extends React.Component {
             )}
           />
           <Route exact path="/sign-up" component={SignUp} />
+          <AuthRoute
+            exact
+            path="/upload-images"
+            component={UploadImage}
+            authenticate={this.isLoggedIn}
+          />
           <AuthRoute
             exact
             path="/images"
