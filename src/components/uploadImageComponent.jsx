@@ -1,4 +1,6 @@
+/* eslint-disable react/self-closing-comp */
 import React from 'react';
+import '../Styles/uploadImageComponent.css';
 
 class UploadImage extends React.Component {
   constructor(props) {
@@ -12,10 +14,9 @@ class UploadImage extends React.Component {
   render() {
     return (
       <div className="upload-form">
-        <h1>Upload An Image</h1>
         <form>
 
-          <label htmlFor="Image"></label>
+          <label htmlFor="Image">Upload An Email</label>
           <input type="file"></input>
 
 

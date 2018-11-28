@@ -3,7 +3,7 @@ import NavBar from '../components/navbar';
 import SignUp from '../components/sign-up';
 import { Switch, Route } from 'react-router-dom';
 import ImagesComponent from '../components/ImagesComponent';
-import UploadImages from '../../src/components/uploadImageComponent';
+import UploadImage from '../../src/components/uploadImageComponent';
 
 class App extends React.Component {
   constructor(props) {
@@ -19,7 +19,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/sign-up" component={SignUp} />
           <Route exact path="/images" component={ImagesComponent} />
-          <Route exact path="/upload-images" component={UploadImages} />
+          <Route exact path="/upload-images" component={UploadImage} />
         </Switch>
       </React.Fragment>
     );

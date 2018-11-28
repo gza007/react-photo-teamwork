@@ -1,6 +1,6 @@
 .upload-form {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   border: 2px solid #000;
   background-image: linear-gradient(to right, #1488CC , #2B32B2);
   font-family: 'Acme', sans-serif;
