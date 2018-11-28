@@ -54,23 +54,6 @@ class ImageCardComponent extends React.Component {
         <div className="interaction-div">
           <div className="caption">
             <i className="fas fa-comment" />
-            {this.props.caption}
-          </div>
-          <div className="tagProp">
-            <i className="fas fa-hashtag" />
-            {this.props.tags}
-          </div>
-          <div className="commentProp">
-            <i className="far fa-comments" />
-            {this.props.comments}
-          </div>
-          <div className="likesProp">
-            <i className="fas fa-thumbs-up" />
-            {this.props.likes}
-          </div>
-
-          <div className="caption">
-            <i className="fas fa-comment" />
             {this.props.image.caption}
           </div>
           <div className="tagProp">
