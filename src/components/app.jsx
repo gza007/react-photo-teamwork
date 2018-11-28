@@ -5,6 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 import ImagesComponent from '../components/ImagesComponent';
 import Login from '../components/login';
 import TokenManager from '../utils/token-manager';
+import AuthRoute from './auth-route';
 
 class App extends React.Component {
   constructor(props) {
@@ -21,7 +22,6 @@ class App extends React.Component {
   handleLogout = () => {
     TokenManager.removeToken();
     this.setState({ user: null });
-    console.log(this.state.user);
   };
 
   isLoggedIn = () => {
@@ -45,7 +45,12 @@ class App extends React.Component {
             )}
           />
           <Route exact path="/sign-up" component={SignUp} />
-          <Route exact path="/images" component={ImagesComponent} />
+          <AuthRoute
+            exact
+            path="/images"
+            component={ImagesComponent}
+            authenticate={this.isLoggedIn}
+          />
         </Switch>
       </React.Fragment>
     );

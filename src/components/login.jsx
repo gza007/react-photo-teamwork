@@ -26,7 +26,6 @@ class Login extends React.Component {
     event.preventDefault();
     axios.post('http://mcr-codes-image-sharing-api.herokuapp.com/auth/login', this.state.fields)
       .then((response) => {
-        console.log(response);
         TokenManager.setToken(response.data.token);
         this.props.onLogin();
       })
