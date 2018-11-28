@@ -16,6 +16,8 @@ const NavBar = ({ user, isLoggedIn }) => {
         <Link to="/login" replace>Login</Link>
         <Link to="/sign-up" replace>Sign-up</Link>
         <Link to="/images" replace>Images</Link>
+        <Link to="/upload" replace>Images</Link>
+
 
       </nav>
     </header>
