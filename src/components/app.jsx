@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from '../components/navbar';
+import NavBar from './navbar';
 import SignUp from '../components/sign-up';
 import { Switch, Route } from 'react-router-dom';
 import ImagesComponent from '../components/ImagesComponent';

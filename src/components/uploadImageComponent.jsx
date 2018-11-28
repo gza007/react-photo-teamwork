@@ -21,8 +21,6 @@ class UploadImage extends React.Component {
           <label htmlFor="Image">Upload An Email</label>
           <input type="file"></input>
 
-
-
         </form>
 
       </div>

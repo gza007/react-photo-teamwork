@@ -85,16 +85,12 @@ class ImageCardComponent extends React.Component {
             <i className="fas fa-thumbs-up" />
             {this.props.image.likes}
           </div>
-
           <div>
             <label> Add a comment  </label>
             <input name="comments" type="text" className="input-comments"></input>
             <button className="commentsButton" type="submit">Comment</button>
             <button className="likesButton" type="submit" onClick={this.handleOnClick}><i className="fas fa-heart" />Like</button>
-
-
           </div>
-
         </div>
       </div>
     );

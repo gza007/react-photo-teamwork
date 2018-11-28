@@ -13,6 +13,7 @@ const NavBar = ({ user, isLoggedIn }) => {
         }
       </div>
       <nav>
+<<<<<<< HEAD
         {
           !isLoggedIn && (
             <React.Fragment>
@@ -21,10 +22,12 @@ const NavBar = ({ user, isLoggedIn }) => {
             </React.Fragment>
           )
         }
+=======
+        <Link to="/login">Login</Link>
+        <Link to="/sign-up">Sign-up</Link>
+>>>>>>> 31104b6f8640892ab6c2d1e8e990a8d94d8c3a7b
         <Link to="/images">Images</Link>
         <Link to="/upload-images">Upload an Image</Link>
-
-
       </nav>
     </header>
   );
