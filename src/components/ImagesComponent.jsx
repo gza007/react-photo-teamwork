@@ -8,15 +8,6 @@ class ImagesComponent extends React.Component {
     super(props);
     this.state = {
       images: [],
-      fields: {
-        caption: '',
-        tags: [],
-        comments: [],
-        likes: 0,
-        src: '',
-        isLiked: true,
-      },
-
     };
   }
 
