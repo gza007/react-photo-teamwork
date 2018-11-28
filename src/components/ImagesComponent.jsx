@@ -1,7 +1,7 @@
 import React from 'react';
 import '../Styles/ImagesComponent.css';
 import axios from 'axios';
-import ImageCardComponent from '../components/imageCardComponent';
+import ImageCardComponent from './imageCardComponent';
 
 class ImagesComponent extends React.Component {
   constructor(props) {
