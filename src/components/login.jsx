@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import TokenManager from '../utils/token-manager';
 
+import '../Styles/login.scss';
+
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -37,40 +39,43 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div className="login-card">
-        <form
-          onSubmit={this.handleLogin}
-        >
-          <div className="login-card__input">
-            <label htmlFor="email">
-              email:
-            </label>
-            <input
-              name="email"
-              type="email"
-              value={this.state.email}
-              onChange={this.handleFieldChange}
-              required
-            />
-          </div>
-          <div className="login-card__input">
-            <label htmlFor="password">
-              password:
-            </label>
-            <input
-              name="password"
-              type="password"
-              value={this.state.password}
-              onChange={this.handleFieldChange}
-              required
-            />
-          </div>
-          <button
-            type="submit"
+      <div className="login">
+        <h1>Login</h1>
+        <div className="login-card">
+          <form
+            onSubmit={this.handleLogin}
           >
-            Login
-          </button>
-        </form>
+            <div className="login-card__input">
+              <label htmlFor="email">
+                email:
+              </label>
+              <input
+                name="email"
+                type="email"
+                value={this.state.email}
+                onChange={this.handleFieldChange}
+                required
+              />
+            </div>
+            <div className="login-card__input">
+              <label htmlFor="password">
+                password:
+              </label>
+              <input
+                name="password"
+                type="password"
+                value={this.state.password}
+                onChange={this.handleFieldChange}
+                required
+              />
+            </div>
+            <button
+              type="submit"
+            >
+              Login
+            </button>
+          </form>
+        </div>
       </div>
     );
   }
