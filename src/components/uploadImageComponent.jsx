@@ -16,17 +16,15 @@ class UploadImage extends React.Component {
     return (
       <div className="upload-form">
         <form>
+          <input name="upload-file" type="file">
 
-
-          <label htmlFor="Image">Upload An Email</label>
-          <input type="file"></input>
-
+            <button type="submit">Submit</button>
+          </input>
         </form>
-
       </div>
-
     );
   }
 }
+
 
 export default UploadImage;

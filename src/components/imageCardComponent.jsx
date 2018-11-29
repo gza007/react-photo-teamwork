@@ -28,6 +28,7 @@ class ImageCardComponent extends React.Component {
       headers: {
         Authorization: TokenManager.getToken(),
       },
+
     })
       .then((response) => {
         this.setState({
