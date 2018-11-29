@@ -10,7 +10,7 @@ const ThumbCard = (props) => {
           `${props.image.user.firstName} ${props.image.user.lastName}`
         }
       </span>
-      <Link to={`/image/${props.image._id}`}>
+      <Link to={{ pathname: `/images/${props.image._id}`, state: { image: props.image } }}>
         <img className="image-link" src={props.image.thumb} alt={props.image.caption} />
       </Link>
     </div>

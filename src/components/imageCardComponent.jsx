@@ -13,13 +13,13 @@ class ImageCardComponent extends React.Component {
     this.state = {
       comment: '',
       fields: {
-        _id: this.props.image._id,
-        caption: this.props.image.caption,
-        tags: this.props.image.tags,
-        comments: this.props.image.comments,
-        likes: this.props.image.likes,
-        src: this.props.image.src,
-        isLiked: this.props.image.isLiked,
+        _id: this.props.location.state.image._id,
+        caption: this.props.location.state.image.caption,
+        tags: this.props.location.state.image.tags,
+        comments: this.props.location.state.image.comments,
+        likes: this.props.location.state.image.likes,
+        src: this.props.location.state.image.src,
+        isLiked: this.props.location.state.image.isLiked,
       },
     };
   }
