@@ -1,12 +1,16 @@
 import React from 'react';
 
+import '../Styles/profile.scss';
+
 const Profile = (props) => {
   return (
     props.isLoggedIn ?
       (
-        <div>
+        <div className="profile">
           <h2>{`Hello ${props.user.firstName}`}</h2>
-          <button onClick={props.onLogout}>Log Out</button>
+          <div className="card">
+            <button onClick={props.onLogout}>Log Out</button>
+          </div>
         </div>
       ) :
       (

@@ -41,7 +41,7 @@ class Login extends React.Component {
     return (
       <div className="login">
         <h1>Login</h1>
-        <div className="login-card">
+        <div className="card">
           <form
             onSubmit={this.handleLogin}
           >
