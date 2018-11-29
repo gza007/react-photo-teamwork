@@ -1,0 +1,33 @@
+$highlight: #D30C7B;
+$background:  #E8F1F2;
+$alt-background: #0D324D;
+$text: #222222;
+$alt-text: #042A2B;
+
+header{
+    background-color: $alt-background;
+    color: $highlight;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+h1{
+    margin: 0px;
+    padding: 5px;
+}
+
+.icon{
+    font-size: 2em;
+}
+
+a{
+    color: $background;
+    text-decoration: none;
+    padding: 5px;
+}
+
+.nav{
+    display: flex;
+    justify-content: space-around;
+}
