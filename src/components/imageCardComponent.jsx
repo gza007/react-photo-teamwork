@@ -5,6 +5,7 @@ import React from 'react';
 import '../Styles/ImageCardComponent.css';
 import axios from 'axios';
 import TokenManager from '../utils/token-manager';
+import CommentCard from './comment-card';
 
 class ImageCardComponent extends React.Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class ImageCardComponent extends React.Component {
         _id: this.props.image._id,
         caption: this.props.image.caption,
         tags: this.props.image.tags,
-        comments: this.props.image.comments.content,
+        comments: this.props.image.comments,
         likes: this.props.image.likes,
         src: this.props.image.src,
         isLiked: this.props.image.isLiked,
@@ -75,7 +76,15 @@ class ImageCardComponent extends React.Component {
           </div>
           <div className="commentProp">
             <i className="far fa-comments" />
-            {this.state.fields.comments}
+            {this.state.fields.comments.map((comment) => {
+              return (
+                <CommentCard
+                  key={comment._id}
+                  author={comment.author}
+                  message={comment.content}
+                />
+              );
+            })}
           </div>
           <div className="likesProp">
             <i className="fas fa-thumbs-up" />
