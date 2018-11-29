@@ -36,13 +36,17 @@ input{
 }
 
 button{
+    background-color: white;
+    color: $text;
     margin: auto;
     margin-top: 10px;
     border-radius: 10px;
     width: 100%;
     padding: 10px;
+    font-size: 1.2em;
 }
 
 button:hover{
     cursor: pointer;
+    color: $highlight;
 }
