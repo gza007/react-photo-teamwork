@@ -11,6 +11,7 @@ class ImageCardComponent extends React.Component {
     super(props);
     this.state = {
       fields: {
+        comment: '',
         _id: this.props.image._id,
         caption: this.props.image.caption,
         tags: this.props.image.tags,
@@ -22,8 +23,24 @@ class ImageCardComponent extends React.Component {
     };
   }
 
+  handleFieldChange = (event) => {
+    this.setState({
+      fields: {
+        ...this.state.fields,
+        [event.target.name]: event.target.value,
+      },
+    });
+  };
 
-  handleOnClick = (event) => {
+  handleComment = () => {
+    axios.post(`https://mcr-codes-image-sharing-api.herokuapp.com/images/${this.state.fields._id}/comments`, { content: this.state.fields.comment }, {
+      headers: {
+        Authorization: TokenManager.getToken(),
+      }
+    })
+  };
+
+  handleLike = (event) => {
     axios.patch(`https://mcr-codes-image-sharing-api.herokuapp.com/images/${this.state.fields._id}/likes`, null, {
       headers: {
         Authorization: TokenManager.getToken(),
@@ -66,9 +83,20 @@ class ImageCardComponent extends React.Component {
           </div>
           <div>
             <label> Add a comment  </label>
-            <input name="comments" type="text" className="input-comments"></input>
-            <button className="commentsButton" type="submit">Comment</button>
-            <button className="likesButton" type="submit" onClick={this.handleOnClick}><i className="fas fa-heart" />Like</button>
+            <input
+              name="comment"
+              type="text"
+              className="input-comments"
+              onChange={this.handleFieldChange}
+            />
+            <button
+              className="commentsButton"
+              type="submit"
+              onClick={this.handleComment}
+            >
+              Comment
+            </button>
+            <button className="likesButton" type="submit" onClick={this.handleLike}><i className="fas fa-heart" />Like</button>
           </div>
         </div>
       </div>
