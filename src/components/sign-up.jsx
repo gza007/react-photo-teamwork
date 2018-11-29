@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import TokenManager from '../utils/token-manager';
 
+import '../Styles/sign-up.scss';
+
 class SignUp extends React.Component {
   constructor(props) {
     super(props);
@@ -45,6 +47,7 @@ class SignUp extends React.Component {
         <div className="sign-up">
           <h1>Sign Up</h1>
           <form
+            className="card"
             onSubmit={this.handleSignUp}
           >
             <div className="sign-up_input">
