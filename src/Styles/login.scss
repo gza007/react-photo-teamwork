@@ -1,0 +1,48 @@
+$highlight: #D30C7B;
+$background:  #E8F1F2;
+$alt-background: #0D324D;
+$text: #222222;
+$alt-text: #042A2B;
+$mainFont: 'Acme', sans-serif;
+
+.login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10%;
+    color: $text;
+}
+
+.login-card{
+    display: flex;
+    flex-direction: column;
+    background-color: $alt-background;
+    width: 50%;
+    padding: 10px;
+    border-radius: 10pt;
+    font-size: 1.5em;
+}
+
+label{
+    color: $highlight;
+}
+
+input{
+    border-radius: 10pt;
+    width: 100%;
+    margin: auto;
+    font-size: 1em;
+}
+
+button{
+    margin: auto;
+    margin-top: 10px;
+    border-radius: 10px;
+    width: 100%;
+    padding: 10px;
+}
+
+button:hover{
+    cursor: pointer;
+}
