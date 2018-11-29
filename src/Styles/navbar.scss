@@ -20,6 +20,11 @@ h1{
 
 .icon{
     font-size: 2em;
+    color: white;
+}
+
+.icon:hover{
+    color: $highlight;
 }
 
 a{
