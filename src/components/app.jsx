@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from '../components/navbar';
+import NavBar from './navbar';
 import SignUp from '../components/sign-up';
 import { Switch, Route } from 'react-router-dom';
 import ImagesComponent from '../components/ImagesComponent';
@@ -7,6 +7,8 @@ import UploadImage from '../../src/components/uploadImageComponent';
 import Login from '../components/login';
 import TokenManager from '../utils/token-manager';
 import AuthRoute from './auth-route';
+import Profile from './profile';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -32,11 +34,13 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
+
         <NavBar
           isLoggedIn={this.isLoggedIn()}
           user={this.state.user}
           onLogout={this.handleLogout}
         />
+
         <Switch>
           <Route
             exact
@@ -45,7 +49,23 @@ class App extends React.Component {
               <Login {...props} onLogin={this.handleLogin} />
             )}
           />
-          <Route exact path="/sign-up" component={SignUp} />
+          <Route
+            exact
+            path="/sign-up"
+            component={SignUp}
+          />
+          <Route
+            exact
+            path="/profile"
+            render={props => (
+              <Profile
+                {...props}
+                onLogout={this.handleLogout}
+                user={this.state.user}
+                isLoggedIn={this.isLoggedIn()}
+              />
+            )}
+          />
           <AuthRoute
             exact
             path="/upload-images"

@@ -31,10 +31,7 @@ class ImageCardComponent extends React.Component {
     })
       .then((response) => {
         this.setState({
-          fields: {
-            like: response.data.likes,
-            isLiked: response.data.isLiked,
-          },
+          fields: response.data,
         });
       });
 
@@ -43,7 +40,6 @@ class ImageCardComponent extends React.Component {
 
   render() {
     return (
-
       <div className="imageCard">
         <div className="imageCardLogo">
           <i className="fas fa-image" />
@@ -76,9 +72,7 @@ class ImageCardComponent extends React.Component {
 
 
         </div>
-
       </div>
-
     );
   }
 }

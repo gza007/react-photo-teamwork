@@ -3,6 +3,7 @@ import React from 'react';
 import '../Styles/uploadImageComponent.css';
 import Axios from 'axios';
 
+
 class UploadImage extends React.Component {
   constructor(props) {
     super(props);

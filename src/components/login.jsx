@@ -28,6 +28,7 @@ class Login extends React.Component {
       .then((response) => {
         TokenManager.setToken(response.data.token);
         this.props.onLogin();
+        this.props.history.push('/images');
       })
       .catch((error) => {
         console.log(error);
