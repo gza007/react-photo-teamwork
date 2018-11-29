@@ -1,25 +1,62 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../Styles/navbar.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faSignInAlt,
+  faUserCircle,
+  faImages,
+  faUpload,
+  faUserPlus,
+} from '@fortawesome/free-solid-svg-icons';
 
+import '../Styles/navbar.scss';
 
 const NavBar = ({ isLoggedIn }) => {
   return (
     <header>
       <h1>HawkEye</h1>
-      <nav>
+      <nav className="nav">
         {
             isLoggedIn ?
-              (<Link to="/profile">Profile</Link>) :
               (
                 <React.Fragment>
-                  <Link to="/login">Login</Link>
-                  <Link to="/sign-up">Sign-up</Link>
+                  <Link to="/images">
+                    <FontAwesomeIcon
+                      className="icon"
+                      icon={faImages}
+                    />
+                  </Link>
+                  <Link to="/upload-images">
+                    <FontAwesomeIcon
+                      className="icon"
+                      icon={faUpload}
+                    />
+                  </Link>
+                  <Link to="/profile">
+                    <FontAwesomeIcon
+                      className="icon"
+                      icon={faUserCircle}
+                    />
+                  </Link>
+                </React.Fragment>
+              ) :
+              (
+                <React.Fragment>
+                  <Link to="/login">
+                    <FontAwesomeIcon
+                      className="icon"
+                      icon={faSignInAlt}
+                    />
+                  </Link>
+                  <Link to="/sign-up">
+                    <FontAwesomeIcon
+                      className="icon"
+                      icon={faUserPlus}
+                    />
+                  </Link>
                 </React.Fragment>
               )
           }
-        <Link to="/images">Images</Link>
-        <Link to="/upload-images">Upload an Image</Link>
       </nav>
     </header>
   );
