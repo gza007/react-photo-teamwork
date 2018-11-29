@@ -24,9 +24,7 @@ class ImageCardComponent extends React.Component {
 
 
   handleOnClick = (event) => {
-
-
-    axios.patch(`https://mcr-codes-image-sharing-api.herokuapp.com/images/${this.state.fields._id}/likes`, null, {
+    axios.patch(`/${this.state.fields._id}/likes`, null, {
       headers: {
         Authorization: TokenManager.getToken(),
       },
@@ -51,41 +49,23 @@ class ImageCardComponent extends React.Component {
           <i className="fas fa-image" />
         </div>
         <div className="theImage">
-          <img src={this.props.image.src} />
+          <img src={this.state.fields.src} />
         </div>
-        <div className="interaction-div">
-          <div className="caption">
-            <i className="fas fa-comment" />
-            {this.props.caption}
-          </div>
-          <div className="tagProp">
-            <i className="fas fa-hashtag" />
-            {this.props.tags}
-          </div>
-          <div className="commentProp">
-            <i className="far fa-comments" />
-            {this.props.comments}
-          </div>
-          <div className="likesProp">
-            <i className="fas fa-thumbs-up" />
-            {this.props.likes}
-          </div>
-
         <div className="caption">
           <i className="fas fa-comment" />
-          {this.props.image.caption}
+          {this.state.caption}
         </div>
         <div className="tagProp">
           <i className="fas fa-hashtag" />
-          {this.props.image.tags}
+          {this.state.fields.tags}
         </div>
         <div className="commentProp">
           <i className="far fa-comments" />
-          {this.props.image.comments.content}
+          {this.state.fields.comments.content}
         </div>
         <div className="likesProp">
           <i className="fas fa-thumbs-up" />
-          {this.props.image.likes}
+          {this.state.fields.likes}
         </div>
 
         <div>
