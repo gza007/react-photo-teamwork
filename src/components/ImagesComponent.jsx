@@ -1,7 +1,7 @@
 import React from 'react';
 import '../Styles/ImagesComponent.css';
 import axios from 'axios';
-import ImageCardComponent from './imageCardComponent';
+import ThumbCard from './thumb-card';
 
 class ImagesComponent extends React.Component {
   constructor(props) {
@@ -20,11 +20,11 @@ class ImagesComponent extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <div className="image-card">
+        <div className="image-area">
           {this.state.images.map(image => {
             return (
               <div key={image._id} className="col">
-                <ImageCardComponent
+                <ThumbCard
                   image={image}
                 />
               </div>
