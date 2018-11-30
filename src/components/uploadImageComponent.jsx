@@ -13,6 +13,8 @@ class UploadImage extends React.Component {
         src: '',
         caption: '',
         tags: [],
+        likes: '',
+        isLiked: false,
 
       },
       ],
