@@ -11,8 +11,8 @@ class ImageCardComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      comment: '',
       fields: {
-        comment: '',
         _id: this.props.image._id,
         caption: this.props.image.caption,
         tags: this.props.image.tags,
@@ -24,17 +24,14 @@ class ImageCardComponent extends React.Component {
     };
   }
 
-  handleFieldChange = (event) => {
+  handleCommentChange = (event) => {
     this.setState({
-      fields: {
-        ...this.state.fields,
-        [event.target.name]: event.target.value,
-      },
+      comment: event.target.value,
     });
   };
 
   handleComment = () => {
-    axios.post(`https://mcr-codes-image-sharing-api.herokuapp.com/images/${this.state.fields._id}/comments`, { content: this.state.fields.comment }, {
+    axios.post(`https://mcr-codes-image-sharing-api.herokuapp.com/images/${this.state.fields._id}/comments`, { content: this.state.comment }, {
       headers: {
         Authorization: TokenManager.getToken(),
       },
@@ -94,10 +91,11 @@ class ImageCardComponent extends React.Component {
           <div>
             <label> Add a comment  </label>
             <input
-              name="comment"
               type="text"
+              name="comment"
               className="input-comments"
-              onChange={this.handleFieldChange}
+              value={this.state.comment}
+              onChange={this.handleCommentChange}
             />
             <button
               className="commentsButton"
