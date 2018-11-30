@@ -1,6 +1,6 @@
 /* eslint-disable react/self-closing-comp */
 import React from 'react';
-import '../Styles/uploadImageComponent.css';
+import '../Styles/uploadImageComponent.scss';
 import Axios from 'axios';
 import TokenManager from '../utils/token-manager';
 

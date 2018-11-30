@@ -2,7 +2,7 @@
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable react/no-unused-state */
 import React from 'react';
-import '../Styles/ImageCardComponent.css';
+import '../Styles/ImageCardComponent.scss';
 import axios from 'axios';
 import TokenManager from '../utils/token-manager';
 import CommentCard from './comment-card';

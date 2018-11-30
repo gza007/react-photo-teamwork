@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Styles/ImagesComponent.css';
+import '../Styles/ImagesComponent.scss';
 import axios from 'axios';
 import ImageCardComponent from '../components/imageCardComponent';
 
