@@ -9,30 +9,27 @@ class UploadImage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      file: null,
-      fields: {
-        src: null,
-        thumb: null,
-        caption: null,
-        tags: null,
-        timestamp: null,
+      fields: [{
+        src: '',
+        caption: '',
+        tags: [],
 
       },
-
+      ],
+      file: null,
     };
   }
 
   handleFileSelect = (event) => {
     this.setState({
       file: event.target.files[0],
-      src: URL.createObjectURL(event.target.files[0]),
 
 
     });
     console.log(this.state.fields);
   };
 
-  handleFileChange = (event) => {
+  handleFieldChange = (event) => {
     this.setState({
       fields: {
         ...this.state.fields,
@@ -42,11 +39,13 @@ class UploadImage extends React.Component {
     console.log(event.target.value);
   };
 
-  handleFileUpload = () => {
+  handleFileUpload = (event) => {
+    event.preventDefault();
+    console.log(event);
     const formData = new FormData();
-    formData.append('image', this.props.file);
-    formData.append('caption', this.props.caption);
-    formData.append('tags', this.state.props.tags);
+    formData.append('image', this.state.file);
+    formData.append('caption', this.state.fields.caption);
+    formData.append('tags', this.state.fields.tags);
     console.log(formData);
 
 
@@ -70,9 +69,10 @@ class UploadImage extends React.Component {
       <div className="upload-form">
         <form>
           <label htmlFor="upload-field"></label>
-          <input name="src" type="file" value={this.state.fields.src} onChange={this.handleFileSelect}></input>
+          <input name="src" type="file" value={this.state.fields.file} onChange={this.handleFileSelect}></input>
+          <img className="image-preview" src={this.state.src} />
           <label htmlFor="captiom">Caption:</label>
-          <input name="caption" type="text" value={this.state.fileds.caption} onChange={this.handleFieldChange}></input>
+          <input name="caption" type="text" value={this.state.fields.caption} onChange={this.handleFieldChange}></input>
           <label htmlFor="tags">Tags:</label>
           <input name="tags" type="text" value={this.state.fields.tags} onChange={this.handleFieldChange}></input>
 
