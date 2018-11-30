@@ -1,6 +1,6 @@
 /* eslint-disable react/self-closing-comp */
 import React from 'react';
-import '../Styles/uploadImageComponent.css';
+import '../Styles/uploadImageComponent.scss';
 import Axios from 'axios';
 import TokenManager from '../utils/token-manager';
 
@@ -8,15 +8,11 @@ import TokenManager from '../utils/token-manager';
 class UploadImage extends React.Component {
   constructor(props) {
     super(props);
-    this.State = {
+    this.state = {
       fields: [{
-        user: '',
         src: '',
-        thumb: '',
         caption: '',
         tags: [],
-        comments: [],
-        timestamp: '',
         likes: '',
         isLiked: false,
 
@@ -26,26 +22,33 @@ class UploadImage extends React.Component {
     };
   }
 
-  handleFileSelect = () => {
+  handleFileSelect = (event) => {
     this.setState({
       file: event.target.files[0],
+
+
     });
+    console.log(this.state.fields);
   };
 
-  handleFileChange = (event) => {
+  handleFieldChange = (event) => {
     this.setState({
       fields: {
         ...this.state.fields,
         [event.target.name]: event.target.value,
       },
     });
+    console.log(event.target.value);
   };
 
-  handleFileUpload = () => {
+  handleFileUpload = (event) => {
+    event.preventDefault();
+    console.log(event);
     const formData = new FormData();
     formData.append('image', this.state.file);
-    formData.append('caption', this.state.caption);
-    formData.append('tags', this.state.tags);
+    formData.append('caption', this.state.fields.caption);
+    formData.append('tags', this.state.fields.tags);
+    console.log(formData);
 
 
     const token = TokenManager.getToken();
@@ -68,11 +71,12 @@ class UploadImage extends React.Component {
       <div className="upload-form">
         <form>
           <label htmlFor="upload-field"></label>
-          <input name="image" type="file" id="src" onChange={this.handleFileSelect}></input>
+          <input name="src" type="file" value={this.state.fields.file} onChange={this.handleFileSelect}></input>
+          <img className="image-preview" src={this.state.src} />
           <label htmlFor="captiom">Caption:</label>
-          <input name="caption" type="text" value={this.state.caption} onChange={this.handleFieldChange}></input>
+          <input name="caption" type="text" value={this.state.fields.caption} onChange={this.handleFieldChange}></input>
           <label htmlFor="tags">Tags:</label>
-          <input name="tags" type="text" value={this.props.tags} onChange={this.handleFieldChange}></input>
+          <input name="tags" type="text" value={this.state.fields.tags} onChange={this.handleFieldChange}></input>
 
 
           <button type="submit" onClick={this.handleFileUpload}>Submit</button>
