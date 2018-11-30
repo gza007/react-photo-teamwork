@@ -2,54 +2,34 @@
 import React from 'react';
 import '../Styles/uploadImageComponent.css';
 import Axios from 'axios';
-<<<<<<< HEAD
-=======
 import TokenManager from '../utils/token-manager';
->>>>>>> 7b9b675831b68922feb3d76c426cd88249f8f510
 
 
 class UploadImage extends React.Component {
   constructor(props) {
     super(props);
-<<<<<<< HEAD
-    this.setState = {
+    this.state = {
       file: null,
-      image: {
-        caption: '',
-        tags: [],
-        comments: [],
-        likes: '',
+      fields: {
+        src: null,
+        thumb: null,
+        caption: null,
+        tags: null,
+        timestamp: null,
 
       },
+
     };
   }
 
-  handleonClick = (event) => {
-    this.setState({
-      selectedFile: event.target.files[0],
-=======
-    this.State = {
-      fields: [{
-        user: '',
-        src: '',
-        thumb: '',
-        caption: '',
-        tags: [],
-        comments: [],
-        timestamp: '',
-        likes: '',
-        isLiked: false,
-
-      },
-      ],
-      file: null,
-    };
-  }
-
-  handleFileSelect = () => {
+  handleFileSelect = (event) => {
     this.setState({
       file: event.target.files[0],
+      src: URL.createObjectURL(event.target.files[0]),
+
+
     });
+    console.log(this.state.fields);
   };
 
   handleFileChange = (event) => {
@@ -58,19 +38,16 @@ class UploadImage extends React.Component {
         ...this.state.fields,
         [event.target.name]: event.target.value,
       },
->>>>>>> 7b9b675831b68922feb3d76c426cd88249f8f510
     });
+    console.log(event.target.value);
   };
 
   handleFileUpload = () => {
     const formData = new FormData();
-<<<<<<< HEAD
-    formData.append('image', this.state.selectedFile, this.state.selectedFile.name);
-    Axios.post('https://mcr-codes-image-sharing-api.herokuapp.com/images');
-=======
-    formData.append('image', this.state.file);
-    formData.append('caption', this.state.caption);
-    formData.append('tags', this.state.tags);
+    formData.append('image', this.props.file);
+    formData.append('caption', this.props.caption);
+    formData.append('tags', this.state.props.tags);
+    console.log(formData);
 
 
     const token = TokenManager.getToken();
@@ -86,31 +63,21 @@ class UploadImage extends React.Component {
       .then((response) => {
         console.log(response);
       });
->>>>>>> 7b9b675831b68922feb3d76c426cd88249f8f510
   };
 
   render() {
     return (
       <div className="upload-form">
         <form>
-<<<<<<< HEAD
-          <div className="upload-image">
-            <label htmlFor="Image">Upload An Image</label>
-            <input type="file" onChange={this.handleFile}></input>
-            <button className="submit-button" type="submit" onClick={this.handleonClick}>Submit</button>
-          </div>
-
-=======
           <label htmlFor="upload-field"></label>
-          <input name="image" type="file" id="src" onChange={this.handleFileSelect}></input>
+          <input name="src" type="file" value={this.state.fields.src} onChange={this.handleFileSelect}></input>
           <label htmlFor="captiom">Caption:</label>
-          <input name="caption" type="text" value={this.state.caption} onChange={this.handleFieldChange}></input>
+          <input name="caption" type="text" value={this.state.fileds.caption} onChange={this.handleFieldChange}></input>
           <label htmlFor="tags">Tags:</label>
-          <input name="tags" type="text" value={this.props.tags} onChange={this.handleFieldChange}></input>
+          <input name="tags" type="text" value={this.state.fields.tags} onChange={this.handleFieldChange}></input>
 
 
           <button type="submit" onClick={this.handleFileUpload}>Submit</button>
->>>>>>> 7b9b675831b68922feb3d76c426cd88249f8f510
         </form>
       </div>
     );

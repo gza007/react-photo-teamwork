@@ -30,21 +30,8 @@ class ImageCardComponent extends React.Component {
     });
   };
 
-<<<<<<< HEAD
   handleOnClick = (event) => {
     axios.patch(`/${this.state.fields._id}/likes`, null, {
-=======
-  handleComment = () => {
-    axios.post(`https://mcr-codes-image-sharing-api.herokuapp.com/images/${this.state.fields._id}/comments`, { content: this.state.comment }, {
-      headers: {
-        Authorization: TokenManager.getToken(),
-      },
-    });
-  };
-
-  handleLike = (event) => {
-    axios.patch(`https://mcr-codes-image-sharing-api.herokuapp.com/images/${this.state.fields._id}/likes`, null, {
->>>>>>> 7b9b675831b68922feb3d76c426cd88249f8f510
       headers: {
         Authorization: TokenManager.getToken(),
       },
@@ -68,32 +55,6 @@ class ImageCardComponent extends React.Component {
         <div className="theImage">
           <img src={this.state.fields.src} />
         </div>
-<<<<<<< HEAD
-        <div className="caption">
-          <i className="fas fa-comment" />
-          {this.state.caption}
-        </div>
-        <div className="tagProp">
-          <i className="fas fa-hashtag" />
-          {this.state.fields.tags}
-        </div>
-        <div className="commentProp">
-          <i className="far fa-comments" />
-          {this.state.fields.comments.content}
-        </div>
-        <div className="likesProp">
-          <i className="fas fa-thumbs-up" />
-          {this.state.fields.likes}
-        </div>
-
-        <div>
-          <label> Add a comment  </label>
-          <input name="comments" type="text" className="input-comments"></input>
-          <button className="commentsButton" type="submit">Comment</button>
-          <button className="likesButton" type="submit" onClick={this.handleOnClick}><i className="fas fa-heart" />Like</button>
-
-
-=======
         <div className="interaction-div">
           <div className="caption">
             <i className="fas fa-comment" />
@@ -137,7 +98,6 @@ class ImageCardComponent extends React.Component {
             </button>
             <button className="likesButton" type="submit" onClick={this.handleLike}><i className="fas fa-heart" />Like</button>
           </div>
->>>>>>> 7b9b675831b68922feb3d76c426cd88249f8f510
         </div>
       </div>
     );
