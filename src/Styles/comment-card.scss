@@ -1,0 +1,50 @@
+$highlight: #D30C7B;
+$background:  #E8F1F2;
+$alt-background: #0D324D;
+$text: #222222;
+$alt-text: #042A2B;
+$mainFont: 'Acme', sans-serif;
+
+.comment-card{
+    display:flex;
+    align-items: flex-start;
+    width:100%;
+    align-items: center;
+    background-color: $background;
+    border-radius: 10pt;
+    border: 3px solid $alt-background;
+}
+
+.comment-author{
+    font-size: 8pt;
+}
+
+.card-body{
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.avatar{
+    margin: 0 auto;
+    width: auto;
+    height: 100%;
+}
+
+.avatar-cropper {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-left: 3px;
+}
+
+.comment-message{
+    font-size: 10pt;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: flex-start;
+    width:100%;
+    margin-left: 20px;
+}
