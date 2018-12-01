@@ -13,8 +13,9 @@ class UploadImage extends React.Component {
         src: '',
         caption: '',
         tags: [],
-        likes: '',
-        isLiked: false,
+        alertMessage: '',
+        isError: false,
+        isSuccess: false,
 
       },
       ],
@@ -61,10 +62,14 @@ class UploadImage extends React.Component {
     };
 
     Axios.post('https://mcr-codes-image-sharing-api.herokuapp.com/images', formData, axiosConfig)
-      .then((response) => {
-        console.log(response);
-        window.location.reload();
-      });
+      .then(() => this.setState({
+        fields: {
+          src: '',
+          caption: '',
+          tags: [],
+          file: null,
+        },
+      }));
   };
 
   render() {
