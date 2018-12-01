@@ -1,12 +1,14 @@
-.image-card {
-padding: 5px;
-background-color: azure;
+.image-area{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* background-image: linear-gradient(to bottom, #076585 , #fff); */
 }
 
-.image-card > .col {
+/* .image-card > .col {
   display: flex;
   flex-direction: column;
   width: 640px;
   padding: 5px;
   box-sizing: border-box;
-}
+} */
