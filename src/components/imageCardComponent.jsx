@@ -36,7 +36,7 @@ class ImageCardComponent extends React.Component {
     )
       .then((response) => {
         console.log(response.data);
-        window.location.replace('/images');
+        window.history.back();
       });
   };
 
