@@ -77,6 +77,7 @@ class UploadImage extends React.Component {
     return (
       <div className="upload-form">
         <form>
+          <h1 className="upload-form-header">Upload A File</h1>
           <img className="image-thumb" src={this.state.thumb} />
           <div className="caption-div">
             <label htmlFor="captiom">Caption:</label>
