@@ -68,6 +68,7 @@ class UploadImage extends React.Component {
           caption: '',
           tags: [],
           file: null,
+          thumb: '',
         },
       }));
   };
@@ -76,16 +77,22 @@ class UploadImage extends React.Component {
     return (
       <div className="upload-form">
         <form>
-          <label htmlFor="upload-field"></label>
-          <input name="src" type="file" value={this.state.fields.file} onChange={this.handleFileSelect}></input>
-          <img className="image-preview" src={this.state.src} />
-          <label htmlFor="captiom">Caption:</label>
-          <input name="caption" type="text" value={this.state.fields.caption} onChange={this.handleFieldChange}></input>
-          <label htmlFor="tags">Tags:</label>
-          <input name="tags" type="text" value={this.state.fields.tags} onChange={this.handleFieldChange}></input>
-
-
-          <button type="submit" onClick={this.handleFileUpload}>Submit</button>
+          <img className="image-thumb" src={this.state.thumb} />
+          <div className="caption-div">
+            <label htmlFor="captiom">Caption:</label>
+            <input name="caption" type="text" value={this.state.fields.caption} onChange={this.handleFieldChange}></input>
+          </div>
+          <div className="tags-div">
+            <label htmlFor="tags">Tags:</label>
+            <input name="tags" type="text" value={this.state.fields.tags} onChange={this.handleFieldChange}></input>
+            <div>
+              <label htmlFor="upload-field" className="label"></label>
+              <input name="src" type="file" className="file-select" value={this.state.fields.file} onChange={this.handleFileSelect}></input>
+              <div>
+              </div>
+            </div>
+          </div>
+          <button type="submit" className="submit-button" onClick={this.handleFileUpload}>Submit</button>
         </form>
       </div>
     );

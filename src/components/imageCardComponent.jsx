@@ -65,7 +65,6 @@ class ImageCardComponent extends React.Component {
             {this.state.fields.tags}
           </div>
           <div className="commentProp">
-            <i className="far fa-comments" />
             {this.state.fields.comments.map((comment) => {
               return (
                 <CommentCard
