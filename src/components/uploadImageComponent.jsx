@@ -63,6 +63,7 @@ class UploadImage extends React.Component {
     Axios.post('https://mcr-codes-image-sharing-api.herokuapp.com/images', formData, axiosConfig)
       .then((response) => {
         console.log(response);
+        window.location.reload();
       });
   };
 
