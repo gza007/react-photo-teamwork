@@ -9,6 +9,7 @@ import TokenManager from '../utils/token-manager';
 import AuthRoute from './auth-route';
 import Profile from './profile';
 import '../Styles/app.scss';
+import ImageCardComponent from './imageCardComponent';
 
 
 class App extends React.Component {
@@ -43,6 +44,12 @@ class App extends React.Component {
         />
 
         <Switch>
+          <Route
+            path="/images/:id"
+            render={props => (
+              <ImageCardComponent {...props} />
+            )}
+          />
           <Route
             exact
             path="/login"
