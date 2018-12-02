@@ -10,19 +10,29 @@ import CommentCard from './comment-card';
 class ImageCardComponent extends React.Component {
   constructor(props) {
     super(props);
+    this.props = props;
     this.state = {
       comment: '',
       fields: {
-        _id: this.props.location.state.image._id,
-        caption: this.props.location.state.image.caption,
-        tags: this.props.location.state.image.tags,
-        comments: this.props.location.state.image.comments,
-        likes: this.props.location.state.image.likes,
-        src: this.props.location.state.image.src,
-        isLiked: this.props.location.state.image.isLiked,
+        _id: null,
+        caption: null,
+        tags: null,
+        comments: [],
+        likes: null,
+        src: null,
+        isLiked: null,
       },
     };
   }
+
+  componentDidMount = () => {
+    axios.get(`http://mcr-codes-image-sharing-api.herokuapp.com/images/${this.props.match.params.id}`)
+      .then((response) => {
+        this.setState({
+          fields: response.data,
+        });
+      });
+  };
 
   handleDelete = (event) => {
     event.preventDefault();
