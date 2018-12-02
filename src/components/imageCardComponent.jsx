@@ -24,6 +24,22 @@ class ImageCardComponent extends React.Component {
     };
   }
 
+  handleDelete = (event) => {
+    event.preventDefault();
+    axios.delete(
+      `http://mcr-codes-image-sharing-api.herokuapp.com/images/${this.props.location.state.image._id}`,
+      {
+        headers: {
+          Authorization: TokenManager.getToken(),
+        },
+      }
+    )
+      .then((response) => {
+        console.log(response.data);
+        window.history.back();
+      });
+  };
+
   handleCommentChange = (event) => {
     this.setState({
       comment: event.target.value,
@@ -96,6 +112,7 @@ class ImageCardComponent extends React.Component {
               Comment
             </button>
             <button className="likesButton" type="submit" onClick={this.handleLike}><i className="fas fa-heart" />Like</button>
+            <button className="deleteButton" type="submit" onClick={this.handleDelete}><i className="fas fa-trash-alt"></i>Delete</button>
           </div>
         </div>
       </div>
