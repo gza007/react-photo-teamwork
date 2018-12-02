@@ -95,13 +95,12 @@ class ImageCardComponent extends React.Component {
         <div className="imageCardLogo">
           <i className="fas fa-image" />
         </div>
-        <div className="theImage">
-          <img src={this.state.fields.src} />
-        </div>
         <div className="interaction-div">
           <div className="caption">
-            <i className="fas fa-comment" />
             {this.state.fields.caption}
+          </div>
+          <div className="theImage">
+            <img src={this.state.fields.src} />
           </div>
           <div className="tagProp">
             <i className="fas fa-hashtag" />
