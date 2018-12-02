@@ -46,12 +46,29 @@ class ImageCardComponent extends React.Component {
     });
   };
 
-  handleOnClick = (event) => {
-    axios.patch(`/${this.state.fields._id}/likes`, null, {
+  handleComment = () => {
+    axios.post(`https://mcr-codes-image-sharing-api.herokuapp.com/images/${this.state.fields._id}/comments`, { content: this.state.comment }, {
       headers: {
         Authorization: TokenManager.getToken(),
       },
+    }).then(() => {
+      this.setState({
+        comment: '',
+      });
+      axios.get(`https://mcr-codes-image-sharing-api.herokuapp.com/images/${this.state.fields._id}`)
+        .then((response) => {
+          this.setState({
+            fields: response.data,
+          });
+        });
+    });
+  };
 
+  handleLike = (event) => {
+    axios.patch(`https://mcr-codes-image-sharing-api.herokuapp.com/images/${this.state.fields._id}/likes`, null, {
+      headers: {
+        Authorization: TokenManager.getToken(),
+      },
     })
       .then((response) => {
         this.setState({
