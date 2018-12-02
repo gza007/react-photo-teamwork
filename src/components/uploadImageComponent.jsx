@@ -3,23 +3,25 @@ import React from 'react';
 import '../Styles/uploadImageComponent.scss';
 import Axios from 'axios';
 import TokenManager from '../utils/token-manager';
+import { FilePond, File, registerPlugin } from 'react-filepond';
+import 'filepond/dist/filepond.min.css';
 
+import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation';
+import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
+import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
+
+registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
 class UploadImage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      fields: [{
+      file: [],
+      fields: {
         src: '',
         caption: '',
         tags: [],
-        alertMessage: '',
-        isError: false,
-        isSuccess: false,
-
       },
-      ],
-      file: null,
     };
   }
 
@@ -29,7 +31,6 @@ class UploadImage extends React.Component {
 
 
     });
-    console.log(this.state.fields);
   };
 
   handleFieldChange = (event) => {
@@ -39,18 +40,14 @@ class UploadImage extends React.Component {
         [event.target.name]: event.target.value,
       },
     });
-    console.log(event.target.value);
   };
 
   handleFileUpload = (event) => {
     event.preventDefault();
-    console.log(event);
     const formData = new FormData();
-    formData.append('image', this.state.file);
+    formData.append('image', this.state.file[0]);
     formData.append('caption', this.state.fields.caption);
     formData.append('tags', this.state.fields.tags);
-    console.log(formData);
-
 
     const token = TokenManager.getToken();
 
@@ -60,17 +57,20 @@ class UploadImage extends React.Component {
         'Content-Type': 'multipart/form-data',
       },
     };
-
     Axios.post('https://mcr-codes-image-sharing-api.herokuapp.com/images', formData, axiosConfig)
-      .then(() => this.setState({
-        fields: {
-          src: '',
-          caption: '',
-          tags: [],
-          file: null,
-          thumb: '',
-        },
-      }));
+      .then((response) => {
+        this.setState({
+          file: [],
+          fields: {
+            src: '',
+            caption: '',
+            tags: [],
+            thumb: '',
+            isSuccess: true,
+          },
+        });
+        this.props.history.push(`/images/${response.data._id}`);
+      });
   };
 
   render() {
@@ -79,16 +79,28 @@ class UploadImage extends React.Component {
         <form>
           <h1 className="upload-form-header">Upload A File</h1>
           <img className="image-thumb" src={this.state.thumb} />
-          <div className="caption-div">
-            <label htmlFor="captiom">Caption:</label>
-            <input name="caption" type="text" value={this.state.fields.caption} onChange={this.handleFieldChange}></input>
-          </div>
-          <div className="tags-div">
-            <label htmlFor="tags">Tags:</label>
-            <input name="tags" type="text" value={this.state.fields.tags} onChange={this.handleFieldChange}></input>
-            <div>
-              <label htmlFor="upload-field" className="label"></label>
-              <input name="src" type="file" className="file-select" value={this.state.fields.file} onChange={this.handleFileSelect}></input>
+          <FilePond
+            ref={ref => this.pond = ref}
+            server={null}
+            instantupload={false}
+            onupdatefiles={(fileItems) => {
+              this.setState({
+                file: fileItems.map(fileItem => fileItem.file),
+              });
+            }}
+          >
+            {this.state.file.map(file => (
+              <File key={file} src={file} origin="local" />
+            ))}
+          </FilePond>
+          <div>
+            <div className="caption-div">
+              <label htmlFor="captiom">Caption:</label>
+              <input name="caption" type="text" value={this.state.fields.caption} onChange={this.handleFieldChange}></input>
+            </div>
+            <div className="tags-div">
+              <label htmlFor="tags">Tags:</label>
+              <input name="tags" type="text" value={this.state.fields.tags} onChange={this.handleFieldChange}></input>
               <div>
               </div>
             </div>
