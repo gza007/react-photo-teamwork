@@ -2,8 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import TokenManager from '../utils/token-manager';
 
-import '../Styles/login.scss';
-
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -30,9 +28,10 @@ class Login extends React.Component {
       .then((response) => {
         TokenManager.setToken(response.data.token);
         this.props.onLogin();
-        this.props.history.push('/images');
+        this.props.history.push('/');
       })
       .catch((error) => {
+        // eslint-disable-next-line no-console
         console.log(error);
       });
   };

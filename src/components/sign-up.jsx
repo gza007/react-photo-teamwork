@@ -2,8 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import TokenManager from '../utils/token-manager';
 
-import '../Styles/sign-up.scss';
-
 class SignUp extends React.Component {
   constructor(props) {
     super(props);
@@ -37,6 +35,7 @@ class SignUp extends React.Component {
           });
       })
       .catch((error) => {
+        // eslint-disable-next-line no-console
         console.log(error);
       });
   };
@@ -106,7 +105,7 @@ class SignUp extends React.Component {
                 required
               />
             </div>
-            <div className="sign-up_inpus">
+            <div className="sign-up_input">
               <button
                 type="submit"
               >
