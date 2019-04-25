@@ -10,16 +10,16 @@
   "keywords": [
     "react"
   ],
-  "author": "mcr-codes",
+  "author": "MCRcodes",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ian-antking/hawk-eye.git"
+    "url": "git+https://github.com/MCRcodes/react-photo-teamwork"
   },
   "bugs": {
-    "url": "https://github.com/ian-antking/hawk-eye/issues"
+    "url": "https://github.com/MCRcodes/react-photo-teamwork/issues"
   },
-  "homepage": "https://github.com/ian-antking/hawk-eye#readme",
+  "homepage": "https://github.com/MCRcodes/react-photo-teamwork#readme",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.8",
     "@fortawesome/free-solid-svg-icons": "^5.5.0",

@@ -1,6 +1,6 @@
 # React Teamwork 2
 
-React boilerplate project for Manchester Codes' react photo-sharing teamwork project.
+React boilerplate for Manchester Codes' react photo-sharing teamwork project.
 
 ## Getting Started
 
