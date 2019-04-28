@@ -32,6 +32,8 @@ You should see a links to sign-up and login pages.
 
 #### Team 1: Profile
 
+![Profilepage](https://github.com/MCRcodes/react-teamwork/blob/master/public/img/profile-example.png?raw=true)
+
 #### Team 2: Image Upload
 
 #### Team 3: Image Browsing
