@@ -1,13 +1,15 @@
-# React Teamwork 2
+# React Photo Teamwork
 
 React boilerplate for Manchester Codes' react photo-sharing teamwork project.
 
+For use with the Manchester Codes [photo-api](http://mcr-codes-image-sharing-api.herokuapp.com/).
+
 ## Getting Started
 
-### Clone down this repository (replace `<your_project_name>`:
+### Clone down this repository:
 
 ```bash
-git clone git@github.com:MCRcodes/react-bootstrap.git <your_project_name>
+git clone git@github.com:MCRcodes/react-photo-teamwork.git
 ```
 
 ### Install dependencies
@@ -24,10 +26,14 @@ npm start
 
 ### Visit `localhost:8080` in your browser.
 
-You should see a **Hello World** message.
+You should see a links to sign-up and login pages.
 
-### Change the rendered output
+### Teams
 
-You can change what is mounted to the DOM in `src/index.jsx`.
+#### Team 1: Profile
 
-It might be a good idea to make an `App` component inside `App.jsx` (will likely handle your layout and routing), and to mount this to the DOM.
+#### Team 2: Image Upload
+
+#### Team 3: Image Browsing
+
+#### Team 4: Image Details and Comments
