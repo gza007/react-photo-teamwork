@@ -38,4 +38,8 @@ You should see a links to sign-up and login pages.
 
 #### Team 3: Image Browsing
 
+![Imagespage](https://github.com/MCRcodes/react-photo-teamwork/blob/master/public/img/browse-example.png?raw=true)
+
 #### Team 4: Image Details and Comments
+
+![Detailspage](https://github.com/MCRcodes/react-photo-teamwork/blob/master/public/img/details-example.png?raw=true)
