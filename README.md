@@ -36,7 +36,7 @@ You should see a links to sign-up and login pages.
 
 #### Team 2: Image Upload
 
-Unfortunately the Instagram web app does not have an image uplaod. :man_shrugging
+Unfortunately the Instagram web app does not have an image uplaod. :information_desk_person:
 
 #### Team 3: Image Browsing
 
