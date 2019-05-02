@@ -32,8 +32,6 @@ class App extends React.Component {
   };
 
   render() {
-    // console.log('id', this.state.user);
-    // const { avatar, firstName, lastName } = this.state.user;
     return (
       <React.Fragment>
         <NavBar
@@ -43,10 +41,7 @@ class App extends React.Component {
         />
 
         {this.isLoggedIn() ? (
-          <Profile
-            avatar={this.state.user.avatar}
-            name={`${this.state.user.firstName} ${this.state.user.lastName}`}
-          />
+          <Profile id={this.state.user._id} />
         ) : (
           <div>You are not in</div>
         )}
@@ -56,14 +51,11 @@ class App extends React.Component {
             exact
             path="/login"
             render={props => <Login {...props} onLogin={this.handleLogin} />}
-
           />
           <Route
             exact
             path="/sign-up"
-            render={props => (
-              <SignUp {...props} onLogin={this.handleLogin} />
-            )}
+            render={props => <SignUp {...props} onLogin={this.handleLogin} />}
           />
           <Route exact path="/sign-up" component={SignUp} />
         </Switch>
