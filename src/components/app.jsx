@@ -60,9 +60,7 @@ class App extends React.Component {
           <Route
             exact
             path="/images"
-            render={
-              <ImageBrowser />
-            }
+            component={ImageBrowser}
           />
         </Switch>
       </React.Fragment>

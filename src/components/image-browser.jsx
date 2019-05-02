@@ -33,7 +33,13 @@ render() {
       <div>
         {this.state.images.map(image => {
           return (
-            <img key={image._id} src={image.thumb} />
+            <div key={image._id}>
+              <img src={image.thumb} />
+              <div>
+                <span>Comments: {image.comments.length}</span>
+                <span>{` Likes: ${image.likes}`}</span>
+              </div>
+            </div>
           );
         })}
       </div>
