@@ -4,7 +4,7 @@ import SignUp from '../components/sign-up';
 import { Switch, Route } from 'react-router-dom';
 import Login from '../components/login';
 import TokenManager from '../utils/token-manager';
-
+import ImageDetails from '../components/image-details';
 
 class App extends React.Component {
   constructor(props) {
@@ -49,6 +49,11 @@ class App extends React.Component {
             exact
             path="/sign-up"
             component={SignUp}
+          />
+          <Route
+            exact
+            path="/image"
+            component={ImageDetails}
           />
         </Switch>
       </React.Fragment>
