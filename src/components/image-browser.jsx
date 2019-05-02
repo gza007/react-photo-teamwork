@@ -37,7 +37,6 @@ render() {
           );
         })}
       </div>
-      <div><ImageBrowser /></div>
     </div>
   );
 }
