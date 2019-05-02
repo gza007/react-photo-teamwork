@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from './image';
-import User from './user';
+import Comments from './comments';
 
 class ImageDetails extends React.Component {
   constructor(props) {
@@ -12,22 +12,51 @@ class ImageDetails extends React.Component {
       thumb: '',
       caption: '',
       tags: '',
-      comments: '',
+      comments: ['damn your aggressive', 'more punk IPA'],
       timestamp: '',
       likes: 0,
       isLiked: false,
     };
   }
 
+  handleLike = () => {
+    this.setState({
+      isLiked: !this.state.isLiked,
+    });
+  };
+
+  handleCommentSubmit = (comment) => {
+    this.state.comments.push(comment);
+  };
+
+  
+
   render() {
+    const {
+      imageId,
+      user,
+      src,
+      thumb,
+      caption,
+      tags,
+      comments,
+      timestamp,
+      likes,
+      isLiked,
+    } = this.state;
+
     return (
       <div>
-        <Image src={this.state.src} user={this.state.user} />
-        <User user={this.state.user} />
+        <Image src={src} user={user} />
+        <Comments
+          comments={comments}
+          isLiked={isLiked}
+          onLike={this.handleLike}
+          onSubmit={this.handleCommentSubmit}
+        />
       </div>
     );
   }
-
 }
 
 export default ImageDetails;
