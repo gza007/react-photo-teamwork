@@ -74,12 +74,12 @@ class ImageDetails extends React.Component {
     return (
       <div>
         <Image src={src} user={user.firstName} />
-        {/*<Comments
+        <Comments
           comments={comments}
           isLiked={isLiked}
           onLike={this.handleLike}
           onSubmit={this.handleCommentSubmit}
-        />*/}
+        />
       </div>
     );
   }

@@ -25,7 +25,7 @@ class Comments extends React.Component {
         {this.props.comments.map((comment) => {
           return (
             <div>
-              <div>{comment}</div>
+              <div>{comment.content}</div>
               <button onClick={this.props.onLike}>Like</button>
               {this.props.isLiked && <div>Liked</div>}
             </div>
