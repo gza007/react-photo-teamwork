@@ -15,6 +15,10 @@ class App extends React.Component {
     };
   }
 
+  componentDidMount() {
+    if (TokenManager.isTokenValid()) this.handleLogin();
+  }
+
   handleLogin = () => {
     this.setState({ user: TokenManager.getTokenPayload() });
   };
