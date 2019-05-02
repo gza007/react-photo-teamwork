@@ -14,6 +14,10 @@ class App extends React.Component {
     };
   }
 
+  componentDidMount() {
+    if (TokenManager.isTokenValid()) this.handleLogin();
+  }
+
   handleLogin = () => {
     this.setState({ user: TokenManager.getTokenPayload() });
   };
@@ -48,7 +52,9 @@ class App extends React.Component {
           <Route
             exact
             path="/sign-up"
-            component={SignUp}
+            render={props => (
+              <SignUp {...props} onLogin={this.handleLogin} />
+            )}
           />
           <Route
             exact
