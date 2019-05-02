@@ -15,6 +15,10 @@ class SignUp extends React.Component {
     };
   }
 
+  componentDidMount() {
+    console.log(this.props);
+  }
+
   handleFieldChange = (event) => {
     this.setState({
       fields: {

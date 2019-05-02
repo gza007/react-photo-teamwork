@@ -48,7 +48,9 @@ class App extends React.Component {
           <Route
             exact
             path="/sign-up"
-            component={SignUp}
+            render={props => (
+              <SignUp {...props} onLogin={this.handleLogin} />
+            )}
           />
         </Switch>
       </React.Fragment>
