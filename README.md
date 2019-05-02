@@ -34,17 +34,19 @@ You should see a links to sign-up and login pages.
 
 ![Profilepage](https://github.com/MCRcodes/react-photo-teamwork/blob/master/public/img/profile-example.png?raw=true)
 
-#### Team 2: Image Upload
 
-Unfortunately the Instagram web app does not have an image uplaod. :information_desk_person:
 
-#### Team 3: Image Browsing
+#### Team 2: Image Browsing
 
 ![Imagespage](https://github.com/MCRcodes/react-photo-teamwork/blob/master/public/img/browse-example.png?raw=true)
 
-#### Team 4: Image Details and Comments
+#### Team 3: Image Details and Comments
 
 ![Detailspage](https://github.com/MCRcodes/react-photo-teamwork/blob/master/public/img/details-example.png?raw=true)
+
+#### Extension: Image Upload
+
+Unfortunately the Instagram web app does not have an image upload. :information_desk_person:
 
 ## Checking other teams' work
 
