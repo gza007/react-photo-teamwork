@@ -15,16 +15,17 @@ class ImageBrowser extends React.Component {
 
     this.state = {
       images: [],
-      error: '',
+      error: false,
     };
   }
 
 getImages = () => {
   axios.get(URL)
     .then(response => {
-      this.setState({ ...this.state, images: response.data });
+      this.setState({ images: response.data });
     })
     .catch(() => {
+      this.setState({ error: true });
       alert('Error. Please try again');
     });
 };
@@ -36,25 +37,25 @@ componentDidMount() {
 render() {
   return (
     <div className="image-grid">
-        {this.state.images.map(image => {
-          return (
-            <div key={image._id} className="thumbnail-image">
-              <div className="image-frame">
-                <img src={image.thumb} />
-              </div>
-              <div className="thumbnail-stats">
-                <span>
-                  <FontAwesomeIcon icon="comment" className="icon"/>
-                  {image.comments.length}
-                </span>
-                <span>
-                  <FontAwesomeIcon icon="heart" className="icon"/>
-                  {image.likes}
-                </span>
-              </div>
+      {this.state.images.map(image => {
+        return (
+          <div key={image._id} className="thumbnail-image">
+            <div className="image-frame">
+              <img src={image.thumb} />
             </div>
-          );
-        })}
+            <div className="thumbnail-stats">
+              <span>
+                <FontAwesomeIcon icon="comment" className="icon"/>
+                {image.comments.length}
+              </span>
+              <span>
+                <FontAwesomeIcon icon="heart" className="icon"/>
+                {image.likes}
+              </span>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }
