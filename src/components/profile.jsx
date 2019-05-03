@@ -3,6 +3,16 @@ import axios from 'axios';
 
 const URL = 'http://mcr-codes-image-sharing-api.herokuapp.com/users/';
 
+const container = {
+  display: 'flex',
+  justifyContent: 'flex-start',
+};
+
+const imagesInUser = {
+  width: '150px',
+  height: '100px',
+};
+
 class Profile extends React.Component {
   constructor(props) {
     super(props);
@@ -15,7 +25,6 @@ class Profile extends React.Component {
 
   getProfileInfo = () => {
     axios.get(`${URL}/${this.props.id}`).then(response => {
-      console.log('I am the response of data', response);
       this.setState({
         user: response.data,
       });
@@ -33,11 +42,12 @@ class Profile extends React.Component {
           Name: {this.state.user.firstName} {this.state.user.lastName}
         </div>
         <div className="bio">Bio: {this.state.user.bio} </div>
-        <div className="email">Email: {this.state.user.email}</div>
-        <img src={this.state.user.avatar} height="250" width="250 " />
-        {this.state.user.images.map((image, index) => (
-          <img key={index} src={image.src} />
-        ))}
+        <img src={this.state.user.avatar} height="150" width="150 " />
+        <div style={container}>
+          {this.state.user.images.map(image => (
+            <img style={imagesInUser} key={image._id} src={image.src} />
+          ))}
+        </div>
       </div>
     );
   }
