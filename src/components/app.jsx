@@ -1,10 +1,13 @@
 import React from 'react';
 import NavBar from './navbar';
+import Profile from './profile';
 import SignUp from '../components/sign-up';
 import { Switch, Route } from 'react-router-dom';
 import Login from '../components/login';
 import TokenManager from '../utils/token-manager';
 import ImageDetails from '../components/image-details';
+import ImageBrowser from './image-browser';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -34,33 +37,42 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-
         <NavBar
           isLoggedIn={this.isLoggedIn()}
           user={this.state.user}
           onLogout={this.handleLogout}
         />
 
+        {this.isLoggedIn() ? (
+          <Profile id={this.state.user._id} />
+        ) : (
+          <div>You are not in</div>
+        )}
+
         <Switch>
           <Route
             exact
             path="/login"
-            render={props => (
-              <Login {...props} onLogin={this.handleLogin} />
-            )}
+            render={props => <Login {...props} onLogin={this.handleLogin} />}
           />
           <Route
             exact
             path="/sign-up"
-            render={props => (
-              <SignUp {...props} onLogin={this.handleLogin} />
-            )}
+            render={props => <SignUp {...props} onLogin={this.handleLogin} />}
+          />
+          <Route
+            exact
+            path="/images"
+            component={ImageBrowser}
           />
           <Route
             exact
             path="/image"
             component={ImageDetails}
           />
+          <Route exact path="/sign-up" component={SignUp} />
+
+
         </Switch>
       </React.Fragment>
     );
