@@ -7,6 +7,7 @@ import Login from '../components/login';
 import TokenManager from '../utils/token-manager';
 import ImageDetails from '../components/image-details';
 import ImageBrowser from './image-browser';
+import Upload from './upload';
 import axios from 'axios';
 
 const URL = 'http://mcr-codes-image-sharing-api.herokuapp.com/images';
@@ -75,6 +76,11 @@ class App extends React.Component {
             exact
             path="/sign-up"
             render={props => <SignUp {...props} onLogin={this.handleLogin} />}
+          />
+          <Route
+            exact
+            path="/upload"
+            component={Upload}
           />
           <Route
             exact
