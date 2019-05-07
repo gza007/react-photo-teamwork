@@ -7,37 +7,10 @@ import '../css/image-browser.css';
 
 library.add(faComment, faHeart);
 
-const URL = 'http://mcr-codes-image-sharing-api.herokuapp.com/images';
-
-class ImageBrowser extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      images: [],
-      error: false,
-    };
-  }
-
-getImages = () => {
-  axios.get(URL)
-    .then(response => {
-      this.setState({ images: response.data });
-    })
-    .catch(() => {
-      this.setState({ error: true });
-      alert('Error. Please try again');
-    });
-};
-
-componentDidMount() {
-  this.getImages();
-}
-
-render() {
+const ImageBrowser = (props) => {
   return (
     <div className="image-grid">
-      {this.state.images.map(image => {
+      {props.images.map(image => {
         return (
           <div key={image._id} className="thumbnail-image">
             <div className="image-frame">
@@ -58,7 +31,6 @@ render() {
       })}
     </div>
   );
-}
-}
+};
 
 export default ImageBrowser;

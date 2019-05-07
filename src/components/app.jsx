@@ -7,19 +7,35 @@ import Login from '../components/login';
 import TokenManager from '../utils/token-manager';
 import ImageDetails from '../components/image-details';
 import ImageBrowser from './image-browser';
+import axios from 'axios';
 
+const URL = 'http://mcr-codes-image-sharing-api.herokuapp.com/images';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       user: null,
+      images: [],
+      error: false,
     };
   }
 
   componentDidMount() {
     if (TokenManager.isTokenValid()) this.handleLogin();
+    this.getImages();
   }
+
+  getImages = () => {
+    axios.get(URL)
+      .then(response => {
+        this.setState({ images: response.data });
+      })
+      .catch(() => {
+        this.setState({ error: true });
+        alert('Error. Please try again');
+      });
+  };
 
   handleLogin = () => {
     this.setState({ user: TokenManager.getTokenPayload() });
@@ -35,6 +51,7 @@ class App extends React.Component {
   };
 
   render() {
+    console.log('in render', this.state);
     return (
       <React.Fragment>
         <NavBar
@@ -63,7 +80,7 @@ class App extends React.Component {
           <Route
             exact
             path="/images"
-            component={ImageBrowser}
+            render={props => <ImageBrowser {...props} images={this.state.images} />}
           />
           <Route
             exact
