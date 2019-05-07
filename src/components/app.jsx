@@ -5,6 +5,7 @@ import SignUp from '../components/sign-up';
 import { Switch, Route } from 'react-router-dom';
 import Login from '../components/login';
 import TokenManager from '../utils/token-manager';
+import ImageBrowser from './image-browser';
 
 class App extends React.Component {
   constructor(props) {
@@ -56,8 +57,14 @@ class App extends React.Component {
             exact
             path="/sign-up"
             render={props => <SignUp {...props} onLogin={this.handleLogin} />}
+          /><<<<<<< feature-2
+          <Route
+            exact
+            path="/images"
+            component={ImageBrowser}
           />
           <Route exact path="/sign-up" component={SignUp} />
+
         </Switch>
       </React.Fragment>
     );
