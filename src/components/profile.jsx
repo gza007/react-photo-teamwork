@@ -21,7 +21,7 @@ class Profile extends React.Component {
         images: [],
       },
     };
-  };
+  }
 
   componentDidMount() {
     this.getProfileInfo();

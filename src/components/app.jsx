@@ -51,7 +51,6 @@ class App extends React.Component {
   };
 
   render() {
-    console.log('in render', this.state);
     return (
       <React.Fragment>
         <NavBar
@@ -63,7 +62,7 @@ class App extends React.Component {
         {this.isLoggedIn() ? (
           <Profile id={this.state.user._id} />
         ) : (
-          <div>You are not in</div>
+          <div>You are not logged in.</div>
         )}
 
         <Switch>
@@ -84,8 +83,8 @@ class App extends React.Component {
           />
           <Route
             exact
-            path="/image"
-            component={ImageDetails}
+            path="/image/:id"
+            render={(props) => <ImageDetails {...props} />}
           />
           <Route exact path="/sign-up" component={SignUp} />
 
