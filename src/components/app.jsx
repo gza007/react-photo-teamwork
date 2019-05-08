@@ -7,7 +7,7 @@ import Login from '../components/login';
 import TokenManager from '../utils/token-manager';
 import ImageDetails from '../components/image-details';
 import ImageBrowser from './image-browser';
-import Upload from './upload';
+import ImageUpload from './upload';
 import axios from 'axios';
 
 const URL = 'http://mcr-codes-image-sharing-api.herokuapp.com/images';
@@ -31,6 +31,7 @@ class App extends React.Component {
     axios.get(URL)
       .then(response => {
         this.setState({ images: response.data });
+        console.log(this.state.user);
       })
       .catch(() => {
         this.setState({ error: true });
@@ -80,7 +81,7 @@ class App extends React.Component {
           <Route
             exact
             path="/upload"
-            component={Upload}
+            component={ImageUpload}
           />
           <Route
             exact
