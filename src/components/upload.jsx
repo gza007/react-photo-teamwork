@@ -42,12 +42,8 @@ class ImageUpload extends React.Component {
       },
     };
     axios.post(URL, formData, config)
-      .then(() => {
-        this.setState({
-          caption: '',
-          tags: [],
-          image: '',
-        });
+      .then((response) => {
+        this.props.history.push(`/image/${response.data._id}`);
       })
       .catch(() => {
         alert(`can't upload image!`);
