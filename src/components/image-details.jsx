@@ -37,14 +37,15 @@ class ImageDetails extends React.Component {
   };
 
   handleCommentSubmit = (comment) => {
-    const URL = `http://mcr-codes-image-sharing-api.herokuapp.com/images/${this.state.imageId}/comments`
+    const commentURL = `${URL}/images/${this.state.imageId}/comments`;
     const config = {
       headers: {
         'authorization': TokenManager.getToken(),
         'content-type': 'application/json',
       },
     };
-    axios.post(URL, { content: comment }, config)
+    console.log(commentURL);
+    axios.post(commentURL, { content: comment }, config)
       .then(response => console.log(response.data))
       .catch((error) => console.log(error));
   };
@@ -59,6 +60,7 @@ class ImageDetails extends React.Component {
     axios.get(`${URL}/images/${this.props.match.params.id}`)
       .then(response => {
         this.setState({
+          imageId: response.data._id,
           user: response.data.user,
           src: response.data.src,
           thumb: response.data.thumb,
