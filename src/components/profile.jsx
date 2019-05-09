@@ -4,7 +4,7 @@ import axios from 'axios';
 const container = {
   display: 'flex',
   justifyContent: 'flex-start',
-  'flex-wrap': 'wrap',
+  flex: 'wrap',
 };
 
 const imagesInUser = {
@@ -39,7 +39,7 @@ class Profile extends React.Component {
   render() {
     return (
       <div className="profile-info">
-        <div className="Name">
+        <div className="name">
           Name: {this.state.user.firstName} {this.state.user.lastName}
         </div>
         <div className="bio">Bio: {this.state.user.bio} </div>

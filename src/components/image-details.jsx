@@ -60,15 +60,10 @@ class ImageDetails extends React.Component {
           likes: response.data.likes,
           isLiked: response.data.isLiked,
         });
-      })
-      .catch(err => {
-        console.log(err);
       });
   }
 
   render() {
-    console.log('heyhey');
-    console.log(this.state);
     const {
       imageId,
       user,
