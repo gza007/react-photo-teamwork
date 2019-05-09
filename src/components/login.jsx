@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import TokenManager from '../utils/token-manager';
+import '../css/upload.css';
 
 class Login extends React.Component {
   constructor(props) {
@@ -68,7 +69,7 @@ class Login extends React.Component {
                 required
               />
             </div>
-            <button
+            <button className="button"
               type="submit"
             >
               Login

@@ -1,0 +1,18 @@
+.profile-info {
+  padding: 10px;
+  background: rgb(236, 236, 236);
+}
+
+.user-info {
+  display: flex;
+  padding-bottom: 10px;
+}
+
+img {
+  padding-right: 10px;
+}
+
+.Name, .bio {
+  width: 100%;
+  display: block;
+}
