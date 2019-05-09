@@ -103,6 +103,7 @@ class ImageDetails extends React.Component {
           likes={likes}
           imageLike={this.handleImageLike}
         />
+        <span>#{tags}</span>
         <Comments
           className="comments"
           comments={comments}
