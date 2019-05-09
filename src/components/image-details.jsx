@@ -1,7 +1,15 @@
 import React from 'react';
 import Image from './image';
 import Comments from './comments';
+import Likes from './likes';
 import axios from 'axios';
+import { faComment, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import '../css/image-details.css';
+
+library.add(faComment, faHeart);
+
 
 const URL = 'http://mcr-codes-image-sharing-api.herokuapp.com';
 
@@ -22,7 +30,7 @@ class ImageDetails extends React.Component {
     };
   }
 
-  handleLike = () => {
+  handleCommentLike = () => {
     this.setState({
       isLiked: !this.state.isLiked,
     });
@@ -30,6 +38,12 @@ class ImageDetails extends React.Component {
 
   handleCommentSubmit = (comment) => {
     this.state.comments.push(comment);
+  };
+
+  handleImageLike = () => {
+    this.setState({
+      likes: this.state.likes + 1,
+    });
   };
 
   componentDidMount() {
@@ -46,7 +60,6 @@ class ImageDetails extends React.Component {
           likes: response.data.likes,
           isLiked: response.data.isLiked,
         });
-        console.log(this.state);
       })
       .catch(err => {
         console.log(err);
@@ -54,7 +67,8 @@ class ImageDetails extends React.Component {
   }
 
   render() {
-    console.log(this.props.match);
+    console.log('heyhey');
+    console.log(this.state);
     const {
       imageId,
       user,
@@ -70,15 +84,23 @@ class ImageDetails extends React.Component {
 
     if (!comments) {
       return <h1>loading...</h1>;
-    };
+    }
 
     return (
       <div>
         <Image src={src} user={user.firstName} />
+        <span>
+          <FontAwesomeIcon icon="comment" className="icon-comment" />
+          {comments.length}
+        </span>
+        <Likes
+          likes={likes}
+          imageLike={this.handleImageLike}
+        />
         <Comments
           comments={comments}
           isLiked={isLiked}
-          onLike={this.handleLike}
+          onLike={this.handleCommentLike}
           onSubmit={this.handleCommentSubmit}
         />
       </div>
