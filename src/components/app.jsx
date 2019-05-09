@@ -24,9 +24,11 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    if (TokenManager.isTokenValid()) this.handleLogin();
+    if (TokenManager.isTokenValid()) {
+      this.handleLogin();
+      this.getUserImages();
+    }
     this.getImages();
-    this.getUserImages();
   }
 
   getImages = () => {
@@ -110,7 +112,7 @@ class App extends React.Component {
           <Route
             exact
             path="/"
-            render={props => <ImageBrowser {...props} images={this.state.images} />}
+            render={props => <ImageBrowser {...props} images={this.state.images} onLogout={this.handleLogout} />}
           />
           <Route
             exact
