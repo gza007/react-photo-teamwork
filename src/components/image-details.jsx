@@ -1,8 +1,15 @@
 import React from 'react';
 import Image from './image';
 import Comments from './comments';
+import Likes from './likes';
 import axios from 'axios';
 import TokenManager from '../utils/token-manager';
+import { faComment, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import '../css/image-details.css';
+
+library.add(faComment, faHeart);
 
 const URL = 'http://mcr-codes-image-sharing-api.herokuapp.com';
 
@@ -10,7 +17,7 @@ class ImageDetails extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      imageId: '5c01bcadf4318f00164926fb',
+      imageId: '',
       user: {},
       src: '',
       thumb: '',
@@ -23,7 +30,7 @@ class ImageDetails extends React.Component {
     };
   }
 
-  handleLike = () => {
+  handleCommentLike = () => {
     this.setState({
       isLiked: !this.state.isLiked,
     });
@@ -42,9 +49,14 @@ class ImageDetails extends React.Component {
       .catch((error) => console.log(error));
   };
 
- 
+  handleImageLike = () => {
+    this.setState({
+      likes: this.state.likes + 1,
+    });
+  };
+
   componentDidMount() {
-    axios.get(`${URL}/images/${this.state.imageId}`)
+    axios.get(`${URL}/images/${this.props.match.params.id}`)
       .then(response => {
         this.setState({
           user: response.data.user,
@@ -57,7 +69,6 @@ class ImageDetails extends React.Component {
           likes: response.data.likes,
           isLiked: response.data.isLiked,
         });
-        console.log(this.state);
       })
       .catch(err => {
         console.log(err);
@@ -65,6 +76,8 @@ class ImageDetails extends React.Component {
   }
 
   render() {
+    console.log('heyhey');
+    console.log(this.state);
     const {
       imageId,
       user,
@@ -80,16 +93,24 @@ class ImageDetails extends React.Component {
 
     if (!comments) {
       return <h1>loading...</h1>;
-    };
+    }
 
     return (
       <div>
         <Image src={src} user={user.firstName} />
+        <span>
+          <FontAwesomeIcon icon="comment" className="icon-comment" />
+          {comments.length}
+        </span>
+        <Likes
+          likes={likes}
+          imageLike={this.handleImageLike}
+        />
         <Comments
           className="comments"
           comments={comments}
           isLiked={isLiked}
-          onLike={this.handleLike}
+          onLike={this.handleCommentLike}
           onSubmit={this.handleCommentSubmit}
         />
       </div>

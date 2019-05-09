@@ -1,26 +1,50 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../css/navbar.css';
 
-const NavBar = ({ isLoggedIn }) => {
+const NavBar = ({ isLoggedIn, onLogout }) => {
   return (
     <header>
-      <h1>[photo app name here]</h1>
+      <h1>Team 2 Photo App</h1>
       <nav className="nav">
         {
           isLoggedIn ?
             (
               <React.Fragment>
-                <span>[insert links here]</span>
+                <div>
+                  <Link to="/">
+                    Home
+                  </Link>
+                </div>
+                <div>
+                  <Link to="/gallery">
+                    Gallery
+                  </Link>
+                </div>
+                <div>
+                  <Link to="/upload">
+                    Upload image
+                  </Link>
+                </div>
+                <div>
+                  <Link to="/" onClick={onLogout}>
+                    Logout
+                  </Link>
+                </div>
               </React.Fragment>
             ) :
             (
               <React.Fragment>
-                <Link to="/login">
-                  Login
-                </Link>
-                <Link to="/sign-up">
-                  Sign-Up
-                </Link>
+                <div>
+                  <Link to="/login">
+                    Login
+                  </Link>
+                </div>
+                <div>
+                  <Link to="/sign-up">
+                    Sign-Up
+                  </Link>
+                </div>
               </React.Fragment>
             )
         }
