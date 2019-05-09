@@ -91,6 +91,7 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <NavBar
+          className="nav-bar"
           isLoggedIn={this.isLoggedIn()}
           user={this.state.user}
           onLogout={this.handleLogout}

@@ -10,7 +10,7 @@ const NavBar = ({ isLoggedIn, onLogout }) => {
         {
           isLoggedIn ?
             (
-              <React.Fragment>
+              <div className="nav-bar">
                 <div>
                   <Link to="/">
                     Home
@@ -26,21 +26,21 @@ const NavBar = ({ isLoggedIn, onLogout }) => {
                     Upload image
                   </Link>
                 </div>
-                <div>
+                <div className="logout">
                   <Link to="/" onClick={onLogout}>
                     Logout
                   </Link>
                 </div>
-              </React.Fragment>
+              </div>
             ) :
             (
               <React.Fragment>
-                <div>
+                <div className="login-button">
                   <Link to="/login">
                     Login
                   </Link>
                 </div>
-                <div>
+                <div className="signup">
                   <Link to="/sign-up">
                     Sign-Up
                   </Link>

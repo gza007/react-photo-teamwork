@@ -33,6 +33,7 @@ class Comments extends React.Component {
         <input onChange={this.handleOnChange} type="text" value={this.state.newComment} />
         <button onClick={this.handleSubmit}>Post</button>
       </div>
+      
     );
   }
 };
