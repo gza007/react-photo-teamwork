@@ -3,13 +3,13 @@ import Image from './image';
 import Comments from './comments';
 import Likes from './likes';
 import axios from 'axios';
+import TokenManager from '../utils/token-manager';
 import { faComment, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../css/image-details.css';
 
 library.add(faComment, faHeart);
-
 
 const URL = 'http://mcr-codes-image-sharing-api.herokuapp.com';
 
@@ -37,7 +37,16 @@ class ImageDetails extends React.Component {
   };
 
   handleCommentSubmit = (comment) => {
-    this.state.comments.push(comment);
+    const URL = `http://mcr-codes-image-sharing-api.herokuapp.com/images/${this.state.imageId}/comments`
+    const config = {
+      headers: {
+        'authorization': TokenManager.getToken(),
+        'content-type': 'application/json',
+      },
+    };
+    axios.post(URL, { content: comment }, config)
+      .then(response => console.log(response.data))
+      .catch((error) => console.log(error));
   };
 
   handleImageLike = () => {
@@ -98,6 +107,7 @@ class ImageDetails extends React.Component {
           imageLike={this.handleImageLike}
         />
         <Comments
+          className="comments"
           comments={comments}
           isLiked={isLiked}
           onLike={this.handleCommentLike}
