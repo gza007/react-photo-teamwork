@@ -10,7 +10,7 @@ import ImageBrowser from './image-browser';
 import ImageUpload from './upload';
 import axios from 'axios';
 
-const URL = 'http://mcr-codes-image-sharing-api.herokuapp.com/images';
+const URL = 'http://mcr-codes-image-sharing-api.herokuapp.com';
 
 class App extends React.Component {
   constructor(props) {
@@ -18,6 +18,7 @@ class App extends React.Component {
     this.state = {
       user: null,
       images: [],
+      userImages: [],
       error: false,
     };
   }
@@ -25,19 +26,37 @@ class App extends React.Component {
   componentDidMount() {
     if (TokenManager.isTokenValid()) this.handleLogin();
     this.getImages();
+    this.getUserImages();
   }
 
   getImages = () => {
-    axios.get(URL)
+    axios.get(`${URL}/images`)
       .then(response => {
         this.setState({ images: response.data });
-        console.log(this.state.user);
       })
       .catch(() => {
         this.setState({ error: true });
         alert('Error. Please try again');
       });
   };
+
+  getUserImages = () => {
+    const config = {
+      headers: {
+        'authorization': TokenManager.getToken(),
+        'content-type': 'application/json',
+      },
+    };
+    axios.get(`${URL}/me`, config)
+      .then(response => {
+        this.setState({ userImages: response.data.images });
+      })
+      .catch(() => {
+        this.setState({ error: true });
+        alert('Error. Please try again');
+      });
+  };
+
 
   handleLogin = () => {
     this.setState({ user: TokenManager.getTokenPayload() });
@@ -85,7 +104,12 @@ class App extends React.Component {
           />
           <Route
             exact
-            path="/images"
+            path="/gallery"
+            render={props => <ImageBrowser {...props} images={this.state.userImages} />}
+          />
+          <Route
+            exact
+            path="/"
             render={props => <ImageBrowser {...props} images={this.state.images} />}
           />
           <Route
@@ -100,6 +124,6 @@ class App extends React.Component {
       </React.Fragment>
     );
   }
-}
+};
 
 export default App;
