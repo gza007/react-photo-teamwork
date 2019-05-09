@@ -3,6 +3,10 @@
   background: rgb(236, 236, 236);
 }
 
+.profile-info a {
+  padding: 0;
+}
+
 .user-info {
   display: flex;
   padding-bottom: 10px;

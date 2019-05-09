@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import '../css/profile.css';
 
@@ -52,7 +53,9 @@ class Profile extends React.Component {
         </div>
         <div style={container}>
           {this.state.user.images.map(image => (
-            <img style={imagesInUser} key={image._id} src={image.src} />
+            <Link to={`/image/${image._id}`} key={image._id}>
+              <img style={imagesInUser} src={image.src} />
+            </Link>
           ))}
         </div>
       </div>
