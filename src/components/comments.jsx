@@ -12,7 +12,6 @@ class Comments extends React.Component {
     this.setState({
       newComment: event.target.value,
     });
-    console.log(event.target.value);
   };
 
   handleSubmit = () => {
@@ -24,10 +23,10 @@ class Comments extends React.Component {
       <div>
         {this.props.comments.map((comment) => {
           return (
-            <div>
+            <div key={comment._id}>
               <div>{comment.content}</div>
               <button onClick={this.props.onLike}>Like</button>
-              {this.props.isLiked && <div>Liked</div>}
+              {this.props.isLiked && <div>You Have Liked This Comment!</div>}
             </div>
           );
         })}
