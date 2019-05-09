@@ -2,6 +2,7 @@ import React from 'react';
 import Image from './image';
 import Comments from './comments';
 import axios from 'axios';
+import TokenManager from '../utils/token-manager';
 
 const URL = 'http://mcr-codes-image-sharing-api.herokuapp.com';
 
@@ -29,9 +30,19 @@ class ImageDetails extends React.Component {
   };
 
   handleCommentSubmit = (comment) => {
-    this.state.comments.push(comment);
+    const URL = `http://mcr-codes-image-sharing-api.herokuapp.com/images/${this.state.imageId}/comments`
+    const config = {
+      headers: {
+        'authorization': TokenManager.getToken(),
+        'content-type': 'application/json',
+      },
+    };
+    axios.post(URL, { content: comment }, config)
+      .then(response => console.log(response.data))
+      .catch((error) => console.log(error));
   };
 
+ 
   componentDidMount() {
     axios.get(`${URL}/images/${this.state.imageId}`)
       .then(response => {
@@ -75,6 +86,7 @@ class ImageDetails extends React.Component {
       <div>
         <Image src={src} user={user.firstName} />
         <Comments
+          className="comments"
           comments={comments}
           isLiked={isLiked}
           onLike={this.handleLike}

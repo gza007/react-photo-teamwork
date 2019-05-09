@@ -24,7 +24,7 @@ class Comments extends React.Component {
       <div>
         {this.props.comments.map((comment) => {
           return (
-            <div>
+            <div key={comment._id}>
               <div>{comment.content}</div>
               <button onClick={this.props.onLike}>Like</button>
               {this.props.isLiked && <div>Liked</div>}
@@ -34,6 +34,7 @@ class Comments extends React.Component {
         <input onChange={this.handleOnChange} type="text" value={this.state.newComment} />
         <button onClick={this.handleSubmit}>Post</button>
       </div>
+      
     );
   }
 };
