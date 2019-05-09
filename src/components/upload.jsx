@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import TokenManager from '../utils/token-manager';
+import '../css/upload.css';
 
 const URL = 'http://mcr-codes-image-sharing-api.herokuapp.com/images';
 

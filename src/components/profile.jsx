@@ -4,10 +4,11 @@ import axios from 'axios';
 const container = {
   display: 'flex',
   justifyContent: 'flex-start',
+  'flex-wrap': 'wrap',
 };
 
 const imagesInUser = {
-  width: '150px',
+  width: '100px',
   height: '100px',
 };
 
