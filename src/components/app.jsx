@@ -47,7 +47,7 @@ class App extends React.Component {
   getUserImages = () => {
     const config = {
       headers: {
-        'authorization': TokenManager.getToken(),
+        authorization: TokenManager.getToken(),
         'content-type': 'application/json',
       },
     };

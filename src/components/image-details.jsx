@@ -40,7 +40,7 @@ class ImageDetails extends React.Component {
     const commentURL = `${URL}/images/${this.state.imageId}/comments`;
     const config = {
       headers: {
-        'authorization': TokenManager.getToken(),
+        authorization: TokenManager.getToken(),
         'content-type': 'application/json',
       },
     };

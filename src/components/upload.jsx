@@ -32,13 +32,13 @@ class ImageUpload extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    let formData = new FormData();
+    const formData = new FormData();
     formData.append('caption', this.state.caption);
     formData.append('tags', this.state.tags);
     formData.append('image', this.state.image);
     const config = {
       headers: {
-        'authorization': TokenManager.getToken(),
+        authorization: TokenManager.getToken(),
         'content-type': 'multipart/form-data',
       },
     };
